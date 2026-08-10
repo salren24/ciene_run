@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Escenas")]
     public string characterSelectScene = "CharacterSelect";
-    public string[] levelScenes = { "Level1", "Level2", "Level3" };
+    public string[] levelScenes = { "Level1", "Level2", "Level3", "Level4", "Level5" };
 
     public int CurrentLevelIndex { get; private set; }
     public string CurrentLevelScene => levelScenes[Mathf.Clamp(CurrentLevelIndex, 0, levelScenes.Length - 1)];
@@ -21,11 +21,14 @@ public class GameManager : MonoBehaviour
 
     public int Score { get; private set; }
     public int Coins { get; private set; }
+    public int LevelCoinsCollected { get; private set; }
     public int Lives { get; private set; }
     public float TimeLeft { get; private set; }
     public bool IsPaused { get; private set; }
     public bool IsGameOver { get; private set; }
     public bool IsGameCompleted { get; private set; }
+    public Vector3 RespawnPoint { get; private set; }
+    public bool HasRespawnPoint { get; private set; }
 
     public System.Action OnHudChanged;
     public System.Action OnPausedChanged;
@@ -65,6 +68,8 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         IsGameOver = false;
         IsGameCompleted = false;
+        LevelCoinsCollected = 0;
+        HasRespawnPoint = false;
         Time.timeScale = 1f;
         NotifyHud();
     }
@@ -122,6 +127,7 @@ public class GameManager : MonoBehaviour
     public void AddCoin(int amount = 1)
     {
         Coins += amount;
+        LevelCoinsCollected += amount;
         AddScore(200 * amount);
 
         if (Coins >= 100)
@@ -131,6 +137,12 @@ public class GameManager : MonoBehaviour
         }
 
         NotifyHud();
+    }
+
+    public void SetRespawnPoint(Vector3 point)
+    {
+        RespawnPoint = point;
+        HasRespawnPoint = true;
     }
 
     public void LoseLife()
@@ -149,6 +161,17 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1f;
         IsPaused = false;
+
+        if (HasRespawnPoint)
+        {
+            PlayerController player = FindAnyObjectByType<PlayerController>();
+            if (player != null)
+            {
+                player.RespawnAt(RespawnPoint);
+                return;
+            }
+        }
+
         SceneManager.LoadScene(CurrentLevelScene);
     }
 

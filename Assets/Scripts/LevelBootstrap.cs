@@ -7,6 +7,25 @@ public class LevelBootstrap : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject obstaclePrefab;
 
+    [Header("Sprites tematicos (opcional, si no hay prefab)")]
+    public Sprite coinSprite;
+    public Sprite enemySprite;
+    public Sprite obstacleSprite;
+    public Sprite goalBeforeSprite;
+    public Sprite goalAfterSprite;
+
+    [Header("Estructura de 3 actos (organizativo)")]
+    public float actIEndX = 40f;
+    public float actIIEndX = 80f;
+
+    [Header("Checkpoint (opcional)")]
+    public bool spawnCheckpoint = false;
+    public float checkpointX = 20f;
+    public float checkpointY = 1f;
+
+    [Header("Umbral de completitud (meta)")]
+    [Range(0f, 1f)] public float completionThreshold = 0.7f;
+
     [Header("Monedas de prueba")]
     public int coinCount = 8;
     public float coinStartX = 4f;
@@ -52,6 +71,7 @@ public class LevelBootstrap : MonoBehaviour
         SpawnObstacles();
         SpawnGoal();
         SpawnDeathZone();
+        SpawnCheckpoint();
     }
 
     void SpawnCoins()
@@ -71,8 +91,9 @@ public class LevelBootstrap : MonoBehaviour
                 coin.transform.position = pos;
 
                 SpriteRenderer sr = coin.AddComponent<SpriteRenderer>();
-                sr.sprite = PlaceholderSprite.Square();
-                sr.color = new Color(1f, 0.85f, 0.15f, 1f);
+                bool hasCoinArt = coinSprite != null;
+                sr.sprite = hasCoinArt ? coinSprite : PlaceholderSprite.Square();
+                sr.color = hasCoinArt ? Color.white : new Color(1f, 0.85f, 0.15f, 1f);
                 sr.sortingOrder = 5;
 
                 CircleCollider2D col = coin.AddComponent<CircleCollider2D>();
@@ -103,8 +124,9 @@ public class LevelBootstrap : MonoBehaviour
                 enemy.transform.position = pos;
 
                 SpriteRenderer sr = enemy.AddComponent<SpriteRenderer>();
-                sr.sprite = PlaceholderSprite.Square();
-                sr.color = new Color(0.55f, 0.2f, 0.75f, 1f);
+                bool hasEnemyArt = enemySprite != null;
+                sr.sprite = hasEnemyArt ? enemySprite : PlaceholderSprite.Square();
+                sr.color = hasEnemyArt ? Color.white : new Color(0.55f, 0.2f, 0.75f, 1f);
                 sr.sortingOrder = 5;
                 enemy.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
 
@@ -140,8 +162,9 @@ public class LevelBootstrap : MonoBehaviour
                 obstacle.transform.position = pos;
 
                 SpriteRenderer sr = obstacle.AddComponent<SpriteRenderer>();
-                sr.sprite = PlaceholderSprite.Square();
-                sr.color = new Color(0.75f, 0.15f, 0.15f, 1f);
+                bool hasObstacleArt = obstacleSprite != null;
+                sr.sprite = hasObstacleArt ? obstacleSprite : PlaceholderSprite.Square();
+                sr.color = hasObstacleArt ? Color.white : new Color(0.75f, 0.15f, 0.15f, 1f);
                 sr.sortingOrder = 5;
                 obstacle.transform.localScale = new Vector3(0.9f, 0.9f, 1f);
 
@@ -167,7 +190,32 @@ public class LevelBootstrap : MonoBehaviour
         col.isTrigger = true;
         col.size = new Vector2(0.8f, 3.5f);
         goal.transform.localScale = new Vector3(1f, 3.5f, 1f);
-        goal.AddComponent<GoalFlag>();
+
+        GoalFlag flag = goal.AddComponent<GoalFlag>();
+        flag.beforeSprite = goalBeforeSprite;
+        flag.afterSprite = goalAfterSprite;
+        flag.totalCollectibles = coinCount;
+        flag.completionThreshold = completionThreshold;
+
+        if (goalBeforeSprite != null || goalAfterSprite != null)
+            flag.artRenderer = SpawnGoalArt();
+    }
+
+    SpriteRenderer SpawnGoalArt()
+    {
+        GameObject art = new GameObject("GoalArt");
+        art.transform.position = new Vector3(goalX, goalY + 0.3f, 0f);
+
+        SpriteRenderer artSr = art.AddComponent<SpriteRenderer>();
+        artSr.sprite = goalBeforeSprite != null ? goalBeforeSprite : goalAfterSprite;
+        artSr.sortingOrder = 4;
+
+        const float targetWidth = 6f;
+        float nativeWidth = artSr.sprite.rect.width / artSr.sprite.pixelsPerUnit;
+        float scale = nativeWidth > 0f ? targetWidth / nativeWidth : 1f;
+        art.transform.localScale = new Vector3(scale, scale, 1f);
+
+        return artSr;
     }
 
     void SpawnDeathZone()
@@ -178,5 +226,26 @@ public class LevelBootstrap : MonoBehaviour
         col.isTrigger = true;
         col.size = new Vector2(deathWidth, 2f);
         death.AddComponent<DeathZone>();
+    }
+
+    void SpawnCheckpoint()
+    {
+        if (!spawnCheckpoint)
+            return;
+
+        GameObject checkpoint = new GameObject("Checkpoint");
+        checkpoint.transform.position = new Vector3(checkpointX, checkpointY, 0f);
+        BoxCollider2D col = checkpoint.AddComponent<BoxCollider2D>();
+        col.isTrigger = true;
+        col.size = new Vector2(0.6f, 3f);
+        checkpoint.AddComponent<Checkpoint>();
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(new Vector3(actIEndX, -10f, 0f), new Vector3(actIEndX, 10f, 0f));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(new Vector3(actIIEndX, -10f, 0f), new Vector3(actIIEndX, 10f, 0f));
     }
 }

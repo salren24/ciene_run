@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 910000002}
   - component: {fileID: 910000003}
   m_Layer: 0
-  m_Name: LevelSystems
+  m_Name: LevelSystems_SeguridadCiudadana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,9 +462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f6b8c0315e7a9b2d3f5a7c9e1b2468, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 100001, guid: e7b4bc587b0140218bfe35a5c61af2bf, type: 3}
   enemyPrefab: {fileID: 0}
   obstaclePrefab: {fileID: 0}
+  obstacleSprite: {fileID: 21300000, guid: 26545f10e102470a853699a8e5965a77, type: 3}
+  goalBeforeSprite: {fileID: 21300000, guid: abecf1843c1c4b488dc19560d51e60fa, type: 3}
+  goalAfterSprite: {fileID: 21300000, guid: 8d739df583d6407bbedd650af03708db, type: 3}
   coinCount: 14
   coinStartX: 3
   coinSpacing: 4
@@ -478,6 +481,12 @@ MonoBehaviour:
   - 38
   - 50
   obstacleY: 0.5
+  spawnCheckpoint: 1
+  checkpointX: 29
+  checkpointY: 1
+  actIEndX: 19
+  actIIEndX: 39
+  completionThreshold: 0.7
   goalX: 58
   goalY: 1
   deathY: -8

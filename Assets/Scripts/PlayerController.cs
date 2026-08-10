@@ -165,6 +165,12 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, force);
     }
 
+    public void RespawnAt(Vector3 point)
+    {
+        transform.position = point;
+        rb.linearVelocity = Vector2.zero;
+    }
+
     void UpdateAnimator()
     {
         if (animator == null)

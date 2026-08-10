@@ -1,0 +1,23 @@
+using UnityEngine;
+
+[RequireComponent(typeof(Collider2D))]
+public class Checkpoint : MonoBehaviour
+{
+    bool activated;
+
+    void Reset()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (activated || !other.CompareTag("Player"))
+            return;
+
+        activated = true;
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.SetRespawnPoint(transform.position);
+    }
+}
