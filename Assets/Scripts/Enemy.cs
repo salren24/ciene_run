@@ -82,15 +82,18 @@ public class Enemy : MonoBehaviour
 
     bool WasStompedFromAbove(Collision2D collision)
     {
-        float topThreshold = col.bounds.max.y - 0.1f;
+        // Comparar posiciones/velocidad en vez de puntos de contacto individuales:
+        // con caidas rapidas el motor de fisica a veces reporta el contacto en la
+        // esquina superior del collider en vez de la cara de arriba, lo que hacia
+        // fallar el pisoton de forma intermitente.
+        Rigidbody2D playerRb = collision.rigidbody;
+        if (playerRb != null && playerRb.linearVelocity.y > 0.1f)
+            return false;
 
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.point.y >= topThreshold)
-                return true;
-        }
+        float enemyTop = col.bounds.max.y;
+        float playerBottom = collision.collider.bounds.min.y;
 
-        return false;
+        return playerBottom >= enemyTop - 0.25f;
     }
 
     void Die(Collider2D playerCollider)

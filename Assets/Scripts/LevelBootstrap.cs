@@ -32,6 +32,9 @@ public class LevelBootstrap : MonoBehaviour
     public float coinSpacing = 3f;
     public float coinY = 1.5f;
 
+    [Header("Monedas en patron (si tiene elementos, reemplaza la grilla uniforme de arriba)")]
+    public Vector3[] coinPositions = new Vector3[0];
+
     [Header("Enemigos de prueba")]
     public int enemyCount = 2;
     public float enemyStartX = 14f;
@@ -49,6 +52,66 @@ public class LevelBootstrap : MonoBehaviour
     [Header("Muerte por caída")]
     public float deathY = -8f;
     public float deathWidth = 120f;
+    public float deathCenterX = 20f;
+
+    [Header("Fondo parallax (opcional)")]
+    public float parallaxStartX = -10f;
+    public float parallaxEndMargin = 10f;
+
+    [Header("Parallax - horizonte lejano (ej. goalBeforeSprite)")]
+    public Sprite[] skylineSprites;
+    public int skylineCount = 3;
+    public float skylineParallaxFactor = 0.1f;
+    public Vector2 skylineScaleRange = new Vector2(0.9f, 1.1f);
+    public float skylineY = 3f;
+
+    [Header("Parallax - fondo cercano (ej. fondo.png)")]
+    public Sprite[] backdropSprites;
+    public int backdropCount = 6;
+    public float backdropParallaxFactor = 0.4f;
+    public Vector2 backdropScaleRange = new Vector2(0.95f, 1.05f);
+    public float backdropY = -1f;
+
+    [Header("Parallax - nubes")]
+    public Sprite[] cloudSprites;
+    public int farCloudCount = 2;
+    public float farParallaxFactor = 0.15f;
+    public Vector2 farCloudScaleRange = new Vector2(1.6f, 2.2f);
+    public float farCloudY = 6f;
+
+    public int nearCloudCount = 3;
+    public float nearParallaxFactor = 0.35f;
+    public Vector2 nearCloudScaleRange = new Vector2(0.7f, 1.1f);
+    public float nearCloudY = 4f;
+
+    [Header("Fondo estatico unico (una sola instancia, sin loop, sin parallax)")]
+    public Sprite staticBackdropSprite;
+    public float staticBackdropCenterX;
+    public float staticBackdropCenterY;
+    public float staticBackdropTargetHeight = 12f;
+
+    [Header("Moneda premio (cerca de la meta)")]
+    public Sprite finalCoinSprite;
+    public Vector3 finalCoinPosition;
+    public float finalCoinScale = 1.6f;
+    public int finalCoinScoreValue = 1000;
+
+    [System.Serializable]
+    public struct MovingObstacleConfig
+    {
+        public Vector3 pointA;
+        public Vector3 pointB;
+        public float speed;
+    }
+
+    [Header("Obstaculos en movimiento (opcional)")]
+    public MovingObstacleConfig[] movingObstacles = new MovingObstacleConfig[0];
+
+    [Header("Enemigo de embestida (aparece por tiempo, no por posicion fija)")]
+    public Sprite[] chargeEnemyFrames;
+    public float[] chargeEnemySpawnTimes = new float[] { 60f, 240f };
+    public float chargeEnemySpawnAhead = 11f;
+    public float chargeEnemySpawnY;
 
     void Awake()
     {
@@ -66,19 +129,195 @@ public class LevelBootstrap : MonoBehaviour
             controls.AddComponent<TouchControls>();
         }
 
+        SpawnParallaxBackground();
+        SpawnStaticBackdrop();
         SpawnCoins();
+        SpawnFinalCoin();
         SpawnEnemies();
         SpawnObstacles();
+        SpawnMovingObstacles();
+        SpawnChargeEnemySpawner();
         SpawnGoal();
         SpawnDeathZone();
         SpawnCheckpoint();
     }
 
+    void SpawnStaticBackdrop()
+    {
+        if (staticBackdropSprite == null)
+            return;
+
+        GameObject backdrop = new GameObject("StaticBackdrop");
+        backdrop.transform.position = new Vector3(staticBackdropCenterX, staticBackdropCenterY, 0f);
+
+        SpriteRenderer sr = backdrop.AddComponent<SpriteRenderer>();
+        sr.sprite = staticBackdropSprite;
+        sr.sortingOrder = -12;
+
+        float nativeHeight = staticBackdropSprite.rect.height / staticBackdropSprite.pixelsPerUnit;
+        float scale = nativeHeight > 0f ? staticBackdropTargetHeight / nativeHeight : 1f;
+        backdrop.transform.localScale = new Vector3(scale, scale, 1f);
+    }
+
+    void SpawnFinalCoin()
+    {
+        if (finalCoinScoreValue <= 0)
+            return;
+
+        GameObject coin;
+        Sprite art = finalCoinSprite != null ? finalCoinSprite : coinSprite;
+
+        if (art == null && coinPrefab != null)
+        {
+            // Sin sprite premium propio todavia: reusa el prefab real de moneda
+            // (con su animacion de giro) agrandado y con tinte dorado, en vez
+            // de un cuadrado plano.
+            coin = Instantiate(coinPrefab, finalCoinPosition, Quaternion.identity);
+            coin.transform.localScale *= finalCoinScale;
+
+            SpriteRenderer prefabSr = coin.GetComponent<SpriteRenderer>();
+            if (prefabSr != null)
+                prefabSr.color = new Color(1f, 0.95f, 0.6f, 1f);
+        }
+        else
+        {
+            coin = new GameObject("FinalCoin");
+            coin.transform.position = finalCoinPosition;
+            coin.transform.localScale = Vector3.one * finalCoinScale;
+
+            SpriteRenderer sr = coin.AddComponent<SpriteRenderer>();
+            sr.sprite = art != null ? art : PlaceholderSprite.Square();
+            sr.color = art != null ? Color.white : new Color(1f, 0.85f, 0.15f, 1f);
+            sr.sortingOrder = 6;
+
+            CircleCollider2D col = coin.AddComponent<CircleCollider2D>();
+            col.isTrigger = true;
+            col.radius = 0.4f;
+            coin.AddComponent<CoinPickup>();
+        }
+
+        coin.name = "FinalCoin";
+        CoinPickup pickup = coin.GetComponent<CoinPickup>();
+        if (pickup != null)
+            pickup.scoreValue = finalCoinScoreValue;
+    }
+
+    void SpawnMovingObstacles()
+    {
+        if (movingObstacles == null)
+            return;
+
+        for (int i = 0; i < movingObstacles.Length; i++)
+        {
+            MovingObstacleConfig config = movingObstacles[i];
+            GameObject obstacle;
+
+            if (obstaclePrefab != null)
+            {
+                obstacle = Instantiate(obstaclePrefab, config.pointA, Quaternion.identity);
+                Obstacle staticBehaviour = obstacle.GetComponent<Obstacle>();
+                if (staticBehaviour != null)
+                    Destroy(staticBehaviour);
+            }
+            else
+            {
+                obstacle = new GameObject("MovingObstacle");
+                obstacle.transform.position = config.pointA;
+
+                SpriteRenderer sr = obstacle.AddComponent<SpriteRenderer>();
+                bool hasObstacleArt = obstacleSprite != null;
+                sr.sprite = hasObstacleArt ? obstacleSprite : PlaceholderSprite.Square();
+                sr.color = hasObstacleArt ? Color.white : new Color(0.75f, 0.15f, 0.15f, 1f);
+                sr.sortingOrder = 5;
+                obstacle.transform.localScale = new Vector3(0.9f, 0.9f, 1f);
+
+                obstacle.AddComponent<BoxCollider2D>();
+            }
+
+            MovingObstacle moving = obstacle.AddComponent<MovingObstacle>();
+            moving.pointA = config.pointA;
+            moving.pointB = config.pointB;
+            moving.speed = config.speed;
+
+            obstacle.name = "MovingObstacle_" + i;
+        }
+    }
+
+    void SpawnChargeEnemySpawner()
+    {
+        if (chargeEnemyFrames == null || chargeEnemyFrames.Length == 0)
+            return;
+
+        GameObject spawnerGo = new GameObject("ChargeEnemySpawner");
+        ChargeEnemySpawner spawner = spawnerGo.AddComponent<ChargeEnemySpawner>();
+        spawner.chargeFrames = chargeEnemyFrames;
+        spawner.spawnTimes = chargeEnemySpawnTimes;
+        spawner.spawnAheadDistance = chargeEnemySpawnAhead;
+        spawner.spawnY = chargeEnemySpawnY;
+    }
+
+    void SpawnParallaxBackground()
+    {
+        // fitWidthMultiplier>0 hace que cada copia se escale para cubrir (con leve solape) el
+        // espacio entre copias, dando una capa continua - usado para horizonte/fondo, no para nubes.
+        SpawnScrollingLayer(skylineSprites, skylineCount, skylineParallaxFactor, skylineScaleRange, skylineY, -15, "Skyline", 1.15f);
+        SpawnScrollingLayer(backdropSprites, backdropCount, backdropParallaxFactor, backdropScaleRange, backdropY, -12, "Backdrop", 1.1f);
+        SpawnScrollingLayer(cloudSprites, farCloudCount, farParallaxFactor, farCloudScaleRange, farCloudY, -10, "CloudFar");
+        SpawnScrollingLayer(cloudSprites, nearCloudCount, nearParallaxFactor, nearCloudScaleRange, nearCloudY, -9, "CloudNear");
+    }
+
+    void SpawnScrollingLayer(Sprite[] sprites, int count, float parallaxFactor, Vector2 scaleRange, float y,
+        int sortingOrder, string label, float fitWidthMultiplier = 0f)
+    {
+        if (sprites == null || sprites.Length == 0 || count <= 0)
+            return;
+
+        float spanStart = parallaxStartX;
+        float spanEnd = goalX + parallaxEndMargin;
+        float step = count > 1 ? (spanEnd - spanStart) / (count - 1) : spanEnd - spanStart;
+
+        for (int i = 0; i < count; i++)
+        {
+            Sprite sprite = sprites[i % sprites.Length];
+            float x = spanStart + i * step;
+            float variance = Random.Range(scaleRange.x, scaleRange.y);
+
+            GameObject layer = new GameObject(label + "_" + i);
+            layer.transform.position = new Vector3(x, y, 0f);
+
+            SpriteRenderer sr = layer.AddComponent<SpriteRenderer>();
+            sr.sprite = sprite;
+            sr.sortingOrder = sortingOrder;
+
+            float scale;
+            if (fitWidthMultiplier > 0f)
+            {
+                float nativeWidth = sprite.rect.width / sprite.pixelsPerUnit;
+                float targetWidth = step * fitWidthMultiplier;
+                scale = (nativeWidth > 0f ? targetWidth / nativeWidth : 1f) * variance;
+            }
+            else
+            {
+                scale = variance;
+            }
+
+            layer.transform.localScale = Vector3.one * scale;
+
+            ParallaxLayer parallax = layer.AddComponent<ParallaxLayer>();
+            parallax.parallaxFactor = parallaxFactor;
+        }
+    }
+
     void SpawnCoins()
     {
-        for (int i = 0; i < coinCount; i++)
+        bool usePattern = coinPositions != null && coinPositions.Length > 0;
+        int count = usePattern ? coinPositions.Length : coinCount;
+
+        for (int i = 0; i < count; i++)
         {
-            Vector3 pos = new Vector3(coinStartX + i * coinSpacing, coinY + (i % 2) * 0.6f, 0f);
+            Vector3 pos = usePattern
+                ? coinPositions[i]
+                : new Vector3(coinStartX + i * coinSpacing, coinY + (i % 2) * 0.6f, 0f);
             GameObject coin;
 
             if (coinPrefab != null)
@@ -181,47 +420,47 @@ public class LevelBootstrap : MonoBehaviour
         GameObject goal = new GameObject("GoalFlag");
         goal.transform.position = new Vector3(goalX, goalY, 0f);
 
-        SpriteRenderer sr = goal.AddComponent<SpriteRenderer>();
-        sr.sprite = PlaceholderSprite.Square();
-        sr.color = new Color(0.2f, 0.85f, 0.35f, 1f);
-        sr.sortingOrder = 6;
-
         BoxCollider2D col = goal.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
-        col.size = new Vector2(0.8f, 3.5f);
-        goal.transform.localScale = new Vector3(1f, 3.5f, 1f);
+        col.size = new Vector2(1.6f, 3.8f);
+        col.offset = new Vector2(0.3f, 1.9f);
+
+        BuildGoalVisual(goal.transform);
 
         GoalFlag flag = goal.AddComponent<GoalFlag>();
+        bool usePattern = coinPositions != null && coinPositions.Length > 0;
         flag.beforeSprite = goalBeforeSprite;
         flag.afterSprite = goalAfterSprite;
-        flag.totalCollectibles = coinCount;
+        flag.totalCollectibles = usePattern ? coinPositions.Length : coinCount;
         flag.completionThreshold = completionThreshold;
-
-        if (goalBeforeSprite != null || goalAfterSprite != null)
-            flag.artRenderer = SpawnGoalArt();
     }
 
-    SpriteRenderer SpawnGoalArt()
+    void BuildGoalVisual(Transform parent)
     {
-        GameObject art = new GameObject("GoalArt");
-        art.transform.position = new Vector3(goalX, goalY + 0.3f, 0f);
+        CreateGoalPart(parent, "Base", new Vector3(0f, 0.1f, 0f), new Vector2(0.7f, 0.2f), new Color(0.35f, 0.35f, 0.38f), 5);
+        CreateGoalPart(parent, "Pole", new Vector3(0f, 1.8f, 0f), new Vector2(0.14f, 3.4f), new Color(0.42f, 0.3f, 0.2f), 5);
+        CreateGoalPart(parent, "Banner", new Vector3(0.4f, 3.0f, 0f), new Vector2(1.1f, 0.7f), new Color(0.18f, 0.75f, 0.35f), 6);
+        CreateGoalPart(parent, "BannerAccent", new Vector3(0.4f, 3.0f, 0f), new Vector2(0.7f, 0.35f), Color.white, 7);
+        CreateGoalPart(parent, "Finial", new Vector3(0f, 3.55f, 0f), new Vector2(0.28f, 0.28f), new Color(1f, 0.85f, 0.2f), 5);
+    }
 
-        SpriteRenderer artSr = art.AddComponent<SpriteRenderer>();
-        artSr.sprite = goalBeforeSprite != null ? goalBeforeSprite : goalAfterSprite;
-        artSr.sortingOrder = 4;
+    void CreateGoalPart(Transform parent, string name, Vector3 localPos, Vector2 size, Color color, int sortingOrder)
+    {
+        GameObject part = new GameObject(name);
+        part.transform.SetParent(parent, false);
+        part.transform.localPosition = localPos;
+        part.transform.localScale = new Vector3(size.x, size.y, 1f);
 
-        const float targetWidth = 6f;
-        float nativeWidth = artSr.sprite.rect.width / artSr.sprite.pixelsPerUnit;
-        float scale = nativeWidth > 0f ? targetWidth / nativeWidth : 1f;
-        art.transform.localScale = new Vector3(scale, scale, 1f);
-
-        return artSr;
+        SpriteRenderer sr = part.AddComponent<SpriteRenderer>();
+        sr.sprite = PlaceholderSprite.Square();
+        sr.color = color;
+        sr.sortingOrder = sortingOrder;
     }
 
     void SpawnDeathZone()
     {
         GameObject death = new GameObject("DeathZone");
-        death.transform.position = new Vector3(20f, deathY, 0f);
+        death.transform.position = new Vector3(deathCenterX, deathY, 0f);
         BoxCollider2D col = death.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(deathWidth, 2f);

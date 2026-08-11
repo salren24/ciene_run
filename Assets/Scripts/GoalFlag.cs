@@ -67,7 +67,7 @@ public class GoalFlag : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddScore(5000);
-            GameManager.Instance.ReachGoal();
+            GameManager.Instance.ReachGoal(afterSprite);
         }
     }
 }

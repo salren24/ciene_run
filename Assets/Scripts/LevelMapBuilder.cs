@@ -1,6 +1,14 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+[System.Serializable]
+public struct TerrainSegment
+{
+    public int startX;
+    public int endX;
+    public int height;
+}
+
 [RequireComponent(typeof(Tilemap))]
 public class LevelMapBuilder : MonoBehaviour
 {
@@ -16,6 +24,12 @@ public class LevelMapBuilder : MonoBehaviour
 
     [Header("Plataformas opcionales (x, y, ancho)")]
     public Vector3Int[] platforms = new Vector3Int[0];
+
+    [Header("Huecos en la franja principal (x inicio, x fin) - ambos inclusive")]
+    public Vector2Int[] gaps = new Vector2Int[0];
+
+    [Header("Perfil de terreno con altura variable (opcional, vacio = franja plana a groundY)")]
+    public TerrainSegment[] terrainProfile = new TerrainSegment[0];
 
     [Header("Opciones")]
     public bool buildOnAwake = true;
@@ -48,12 +62,16 @@ public class LevelMapBuilder : MonoBehaviour
         if (clearBeforeBuild)
             tilemap.ClearAllTiles();
 
-        // Franja continua sin huecos (primera prueba)
+        // Franja principal, saltando las columnas marcadas como hueco y respetando el perfil de altura
         for (int x = startX; x <= endX; x++)
         {
-            tilemap.SetTile(new Vector3Int(x, groundY, 0), top);
+            if (IsGap(x))
+                continue;
+
+            int y = GetGroundY(x);
+            tilemap.SetTile(new Vector3Int(x, y, 0), top);
             for (int d = 1; d < groundDepth; d++)
-                tilemap.SetTile(new Vector3Int(x, groundY - d, 0), fill);
+                tilemap.SetTile(new Vector3Int(x, y - d, 0), fill);
         }
 
         if (platforms == null)
@@ -65,5 +83,33 @@ public class LevelMapBuilder : MonoBehaviour
             for (int i = 0; i < width; i++)
                 tilemap.SetTile(new Vector3Int(platform.x + i, platform.y, 0), top);
         }
+    }
+
+    bool IsGap(int x)
+    {
+        if (gaps == null)
+            return false;
+
+        foreach (Vector2Int gap in gaps)
+        {
+            if (x >= gap.x && x <= gap.y)
+                return true;
+        }
+
+        return false;
+    }
+
+    int GetGroundY(int x)
+    {
+        if (terrainProfile != null)
+        {
+            foreach (TerrainSegment segment in terrainProfile)
+            {
+                if (x >= segment.startX && x <= segment.endX)
+                    return groundY + segment.height;
+            }
+        }
+
+        return groundY;
     }
 }

@@ -21,7 +21,7 @@ public class CoinPickup : MonoBehaviour
         collected = true;
 
         if (GameManager.Instance != null)
-            GameManager.Instance.AddCoin(coinValue);
+            GameManager.Instance.AddCoin(coinValue, scoreValue);
         else
             Debug.Log("Moneda recogida (+" + scoreValue + ")");
 

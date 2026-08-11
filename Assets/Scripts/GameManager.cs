@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public bool IsPaused { get; private set; }
     public bool IsGameOver { get; private set; }
     public bool IsGameCompleted { get; private set; }
+    public bool IsLevelSummary { get; private set; }
     public Vector3 RespawnPoint { get; private set; }
     public bool HasRespawnPoint { get; private set; }
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public System.Action OnPausedChanged;
     public System.Action OnGameOver;
     public System.Action OnGameCompleted;
+    public System.Action<Sprite> OnLevelSummary;
 
     void Awake()
     {
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         IsGameOver = false;
         IsGameCompleted = false;
+        IsLevelSummary = false;
         LevelCoinsCollected = 0;
         HasRespawnPoint = false;
         Time.timeScale = 1f;
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (IsGameOver || IsGameCompleted)
+        if (IsGameOver || IsGameCompleted || IsLevelSummary)
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
@@ -114,6 +117,7 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         IsGameOver = false;
         IsGameCompleted = false;
+        IsLevelSummary = false;
         Time.timeScale = 1f;
         NotifyHud();
     }
@@ -124,11 +128,11 @@ public class GameManager : MonoBehaviour
         NotifyHud();
     }
 
-    public void AddCoin(int amount = 1)
+    public void AddCoin(int amount = 1, int scoreValue = 200)
     {
         Coins += amount;
         LevelCoinsCollected += amount;
-        AddScore(200 * amount);
+        AddScore(scoreValue * amount);
 
         if (Coins >= 100)
         {
@@ -175,10 +179,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(CurrentLevelScene);
     }
 
-    public void ReachGoal()
+    public void ReachGoal(Sprite summaryImage = null)
     {
         int timeBonus = Mathf.FloorToInt(TimeLeft) * 50;
         AddScore(Mathf.Max(0, timeBonus));
+        Time.timeScale = 0f;
+        IsPaused = true;
+        IsLevelSummary = true;
+        OnLevelSummary?.Invoke(summaryImage);
+        OnPausedChanged?.Invoke();
+    }
+
+    public void ContinueAfterSummary()
+    {
+        IsLevelSummary = false;
         Time.timeScale = 1f;
         IsPaused = false;
 
@@ -195,7 +209,7 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if (IsGameOver || IsGameCompleted)
+        if (IsGameOver || IsGameCompleted || IsLevelSummary)
             return;
 
         if (SceneManager.GetActiveScene().name != CurrentLevelScene)

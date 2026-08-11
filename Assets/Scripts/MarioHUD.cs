@@ -13,6 +13,9 @@ public class MarioHUD : MonoBehaviour
     GameObject pausePanel;
     GameObject gameOverPanel;
     GameObject completedPanel;
+    GameObject summaryPanel;
+    Image summaryImage;
+    Text summaryScoreLabel;
     Font font;
 
     static readonly Color Gold = new Color(1f, 0.85f, 0.2f, 1f);
@@ -29,6 +32,7 @@ public class MarioHUD : MonoBehaviour
         BuildPausePanel();
         BuildGameOverPanel();
         BuildCompletedPanel();
+        BuildLevelSummaryPanel();
     }
 
     void OnEnable()
@@ -40,6 +44,7 @@ public class MarioHUD : MonoBehaviour
         GameManager.Instance.OnPausedChanged += RefreshPause;
         GameManager.Instance.OnGameOver += ShowGameOver;
         GameManager.Instance.OnGameCompleted += ShowCompleted;
+        GameManager.Instance.OnLevelSummary += ShowLevelSummary;
         Refresh();
         RefreshPause();
     }
@@ -53,6 +58,7 @@ public class MarioHUD : MonoBehaviour
         GameManager.Instance.OnPausedChanged -= RefreshPause;
         GameManager.Instance.OnGameOver -= ShowGameOver;
         GameManager.Instance.OnGameCompleted -= ShowCompleted;
+        GameManager.Instance.OnLevelSummary -= ShowLevelSummary;
     }
 
     void EnsureEventSystem()
@@ -146,6 +152,33 @@ public class MarioHUD : MonoBehaviour
             () => GameManager.Instance.QuitToMenu());
     }
 
+    void BuildLevelSummaryPanel()
+    {
+        Canvas canvas = GetComponentInChildren<Canvas>();
+        summaryPanel = CreatePanel(canvas.transform, "LevelSummaryPanel", Vector2.zero, new Vector2(520, 440),
+            new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Panel);
+        summaryPanel.SetActive(false);
+
+        CreateText(summaryPanel.transform, "Title", "¡NIVEL COMPLETADO!", new Vector2(0, 185), new Vector2(480, 40), 28, Gold);
+
+        GameObject imageGo = new GameObject("SummaryImage");
+        imageGo.transform.SetParent(summaryPanel.transform, false);
+        RectTransform imgRect = imageGo.AddComponent<RectTransform>();
+        imgRect.anchorMin = new Vector2(0.5f, 0.5f);
+        imgRect.anchorMax = new Vector2(0.5f, 0.5f);
+        imgRect.pivot = new Vector2(0.5f, 0.5f);
+        imgRect.sizeDelta = new Vector2(420, 236);
+        imgRect.anchoredPosition = new Vector2(0, 45);
+        summaryImage = imageGo.AddComponent<Image>();
+        summaryImage.preserveAspect = true;
+
+        summaryScoreLabel = CreateText(summaryPanel.transform, "SummaryScore", "SCORE: 000000",
+            new Vector2(0, -105), new Vector2(420, 30), 20, Color.white);
+
+        CreateMenuButton(summaryPanel.transform, "CONTINUAR", new Vector2(0, -170),
+            () => GameManager.Instance.ContinueAfterSummary());
+    }
+
     void Refresh()
     {
         var gm = GameManager.Instance;
@@ -173,13 +206,16 @@ public class MarioHUD : MonoBehaviour
             return;
 
         if (pausePanel != null)
-            pausePanel.SetActive(gm.IsPaused && !gm.IsGameOver && !gm.IsGameCompleted);
+            pausePanel.SetActive(gm.IsPaused && !gm.IsGameOver && !gm.IsGameCompleted && !gm.IsLevelSummary);
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(gm.IsGameOver);
 
         if (completedPanel != null)
             completedPanel.SetActive(gm.IsGameCompleted);
+
+        if (summaryPanel != null)
+            summaryPanel.SetActive(gm.IsLevelSummary);
     }
 
     void ShowGameOver()
@@ -196,6 +232,24 @@ public class MarioHUD : MonoBehaviour
             pausePanel.SetActive(false);
         if (completedPanel != null)
             completedPanel.SetActive(true);
+    }
+
+    void ShowLevelSummary(Sprite image)
+    {
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
+
+        if (summaryImage != null)
+        {
+            summaryImage.sprite = image;
+            summaryImage.gameObject.SetActive(image != null);
+        }
+
+        if (summaryScoreLabel != null && GameManager.Instance != null)
+            summaryScoreLabel.text = "SCORE: " + GameManager.Instance.Score.ToString("000000");
+
+        if (summaryPanel != null)
+            summaryPanel.SetActive(true);
     }
 
     GameObject CreatePanel(Transform parent, string name, Vector2 pos, Vector2 size,
