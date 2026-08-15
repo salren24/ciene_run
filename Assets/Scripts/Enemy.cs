@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         if (WasStompedFromAbove(collision))
             Die(collision.collider);
         else
-            HurtPlayer();
+            HurtPlayer(collision.collider);
     }
 
     bool WasStompedFromAbove(Collision2D collision)
@@ -112,8 +112,15 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject, 0.05f);
     }
 
-    void HurtPlayer()
+    void HurtPlayer(Collider2D playerCollider)
     {
+        PlayerController pc = playerCollider.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            pc.TakeHit();
+            return;
+        }
+
         if (GameManager.Instance != null)
             GameManager.Instance.LoseLife();
     }

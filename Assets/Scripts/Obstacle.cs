@@ -8,6 +8,13 @@ public class Obstacle : MonoBehaviour
         if (!collision.collider.CompareTag("Player"))
             return;
 
+        PlayerController pc = collision.collider.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            pc.TakeHit();
+            return;
+        }
+
         if (GameManager.Instance != null)
             GameManager.Instance.LoseLife();
     }
