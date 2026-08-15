@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 4f47be98007cc274fb8fd816b48d3f3b
+guid: 9838d462ec996c64988640be64d10503
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2622755579238718159
-    second: plaza_armas_0
+      213: -2074290586728713205
+    second: SNES - Super Mario World - Chocolate Island Stages - Choco-Ghost House
+      (2_2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -34,7 +35,7 @@ TextureImporter:
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: 1
-  maxTextureSize: 4096
+  maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
     filterMode: 1
@@ -72,7 +73,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -85,7 +86,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -98,7 +99,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,13 +114,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plaza_armas_0
+      name: SNES - Super Mario World - Chocolate Island Stages - Choco-Ghost House
+        (2_2)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1600
-        height: 639
+        width: 1536
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fca9239ad46e56420800000000000000
-      internalID: 2622755579238718159
+      spriteID: b04391193b3a633e0800000000000000
+      internalID: -2074290586728713205
       vertices: []
       indices: 
       edges: []
@@ -148,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plaza_armas_0: 2622755579238718159
+      SNES - Super Mario World - Chocolate Island Stages - Choco-Ghost House (2_2)_0: -2074290586728713205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

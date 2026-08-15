@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f47be98007cc274fb8fd816b48d3f3b
+guid: 7f3c9a41d8b2e4a4c9f0a2b5d7e6c831
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2622755579238718159
-    second: plaza_armas_0
+      213: 2000000
+    second: imagen2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,44 +113,44 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plaza_armas_0
+      name: imagen2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1600
-        height: 639
+        width: 4096
+        height: 1638
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
+      customData:
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fca9239ad46e56420800000000000000
-      internalID: 2622755579238718159
+      spriteID: 8f3c9a41d8b2e4a4c9f0a2b5d7e6c831
+      internalID: 2000000
       vertices: []
-      indices: 
+      indices:
       edges: []
       weights: []
     outline: []
-    customData: 
+    customData:
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f3c9a41d8b2e4a4c9f0a2b5d7e6c831
     internalID: 0
     vertices: []
-    indices: 
+    indices:
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plaza_armas_0: 2622755579238718159
-  mipmapLimitGroupName: 
+      imagen2_0: 2000000
+  mipmapLimitGroupName:
   pSDRemoveMatte: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

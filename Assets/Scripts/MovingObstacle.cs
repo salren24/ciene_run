@@ -11,17 +11,23 @@ public class MovingObstacle : MonoBehaviour
 
     Rigidbody2D rb;
     Vector3 target;
+    bool initialized;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
-        target = pointB;
     }
 
     void FixedUpdate()
     {
+        if (!initialized)
+        {
+            target = pointB;
+            initialized = true;
+        }
+
         Vector3 next = Vector3.MoveTowards(transform.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(next);
 
@@ -34,7 +40,8 @@ public class MovingObstacle : MonoBehaviour
         if (!collision.collider.CompareTag("Player"))
             return;
 
-        if (GameManager.Instance != null)
-            GameManager.Instance.LoseLife();
+        PlayerController player = collision.collider.GetComponent<PlayerController>();
+        if (player != null)
+            player.TakeHit();
     }
 }

@@ -1,0 +1,774 @@
+fileFormatVersion: 2
+guid: 256c085d7b80ca443af502e3581895e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3786989872654482241
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_0
+  - first:
+      213: 3865673117759603381
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_1
+  - first:
+      213: 1191713426996825641
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_2
+  - first:
+      213: -4534914972033188202
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_3
+  - first:
+      213: -2548311956494570278
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_4
+  - first:
+      213: 6354144464419862431
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_5
+  - first:
+      213: -6831276822930663443
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_6
+  - first:
+      213: 6631514703012023031
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_7
+  - first:
+      213: 3975748931634073292
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_8
+  - first:
+      213: 3287581590046340474
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_9
+  - first:
+      213: -6590188673651481201
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_10
+  - first:
+      213: 6614139052318766668
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_11
+  - first:
+      213: 5701664275838817926
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_12
+  - first:
+      213: -3144750070209037542
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_13
+  - first:
+      213: -2867939627478468610
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_14
+  - first:
+      213: 8284061399146903993
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_15
+  - first:
+      213: 4123532240103990461
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_16
+  - first:
+      213: 6902324357498899200
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_17
+  - first:
+      213: -3814464859543107298
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_18
+  - first:
+      213: -7382014125327746439
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_19
+  - first:
+      213: 7296108519787548736
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_20
+  - first:
+      213: 5582353644535208113
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_21
+  - first:
+      213: 1842643316238156510
+    second: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+      (1_2)_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_0
+      rect:
+        serializedVersion: 2
+        x: 1855
+        y: 399
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb48d6076c8e17bc0800000000000000
+      internalID: -3786989872654482241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_1
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 0
+        width: 769
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b286d92831a5a530800000000000000
+      internalID: 3865673117759603381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_2
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 303
+        width: 418
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e85324c01d98010800000000000000
+      internalID: 1191713426996825641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_3
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 179
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e7c552cdeb011c0800000000000000
+      internalID: -4534914972033188202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_4
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 159
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adca240f6c392acd0800000000000000
+      internalID: -2548311956494570278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_5
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 0
+        width: 82
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f97b24589b47e2850800000000000000
+      internalID: 6354144464419862431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_6
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 0
+        width: 82
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7dbd65ced6231a0800000000000000
+      internalID: -6831276822930663443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_7
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 0
+        width: 82
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7facfc3bc7fd70c50800000000000000
+      internalID: 6631514703012023031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_8
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 143
+        width: 82
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce0032c692bc2730800000000000000
+      internalID: 3975748931634073292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_9
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 143
+        width: 82
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7573dca906df9d20800000000000000
+      internalID: 3287581590046340474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_10
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 143
+        width: 82
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8563305152fa84a0800000000000000
+      internalID: -6590188673651481201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 785
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46bf74cc642acb50800000000000000
+      internalID: 6614139052318766668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_12
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 0
+        width: 82
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68658ed3371602f40800000000000000
+      internalID: 5701664275838817926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_13
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 0
+        width: 50
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b3ec5097a9b54d0800000000000000
+      internalID: -3144750070209037542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_14
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 0
+        width: 50
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef731e29a180338d0800000000000000
+      internalID: -2867939627478468610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_15
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 50
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b93da1a3f5e6f270800000000000000
+      internalID: 8284061399146903993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_16
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 0
+        width: 50
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4e44799bab93930800000000000000
+      internalID: 4123532240103990461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_17
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 0
+        width: 50
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b8f3dde6bf9cf50800000000000000
+      internalID: 6902324357498899200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_18
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 0
+        width: 50
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1909be8b6c401bc0800000000000000
+      internalID: -3814464859543107298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_19
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 0
+        width: 50
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a7cecb341dd8990800000000000000
+      internalID: -7382014125327746439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_20
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 79
+        width: 162
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04053a4da0cf04560800000000000000
+      internalID: 7296108519787548736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_21
+      rect:
+        serializedVersion: 2
+        x: 1839
+        y: 79
+        width: 162
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b8d0292011887d40800000000000000
+      internalID: 5582353644535208113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House
+        (1_2)_22
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 0
+        width: 306
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed28f185552629910800000000000000
+      internalID: 1842643316238156510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_0: -3786989872654482241
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_1: 3865673117759603381
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_10: -6590188673651481201
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_11: 6614139052318766668
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_12: 5701664275838817926
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_13: -3144750070209037542
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_14: -2867939627478468610
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_15: 8284061399146903993
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_16: 4123532240103990461
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_17: 6902324357498899200
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_18: -3814464859543107298
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_19: -7382014125327746439
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_2: 1191713426996825641
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_20: 7296108519787548736
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_21: 5582353644535208113
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_22: 1842643316238156510
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_3: -4534914972033188202
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_4: -2548311956494570278
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_5: 6354144464419862431
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_6: -6831276822930663443
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_7: 6631514703012023031
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_8: 3975748931634073292
+      SNES - Super Mario World - Vanilla Dome Stages - Vanilla Ghost House (1_2)_9: 3287581590046340474
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

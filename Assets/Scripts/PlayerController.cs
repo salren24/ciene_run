@@ -23,9 +23,18 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
+    [Header("Reaparición tras morir")]
+    public float respawnInvulnerabilityDuration = 1.6f;
+    public float blinkInterval = 0.08f;
+
+    [Header("Power-ups")]
+    public float speedBoostMultiplier = 1.5f;
+    public Color shieldColor = new Color(0.3f, 0.65f, 1f, 0.55f);
+
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator animator;
+    SpriteRenderer shieldVisual;
 
     float moveInput;
     bool runHeld;
@@ -35,14 +44,30 @@ public class PlayerController : MonoBehaviour
 
     float touchMoveInput;
     bool touchRunHeld;
+    bool touchLookDownHeld;
 
     float coyoteCounter;
     float jumpBufferCounter;
     float baseGravity;
     bool jumpConsumed;
 
+    Vector3 lastGroundedPosition;
+    float invulnerabilityTimer;
+    float blinkTimer;
+
+    bool airJumpAvailable;
+    float doubleJumpTimer;
+    float speedBoostTimer;
+    bool hasShield;
+
     public bool IsGrounded => isGrounded;
     public float FacingSign => sr != null && sr.flipX ? -1f : 1f;
+    public bool IsLookDownHeld { get; private set; }
+    public Vector3 LastGroundedPosition => lastGroundedPosition;
+    public bool IsInvulnerable => invulnerabilityTimer > 0f;
+    public bool DoubleJumpActive => doubleJumpTimer > 0f;
+    public bool SpeedBoostActive => speedBoostTimer > 0f;
+    public bool HasShield => hasShield;
 
     void Awake()
     {
@@ -50,9 +75,24 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         baseGravity = rb.gravityScale;
+        lastGroundedPosition = transform.position;
 
         if (groundLayer.value == 0)
             groundLayer = LayerMask.GetMask("Ground");
+
+        BuildShieldVisual();
+    }
+
+    void BuildShieldVisual()
+    {
+        GameObject go = new GameObject("ShieldVisual");
+        go.transform.SetParent(transform, false);
+        go.transform.localScale = Vector3.one * 1.8f;
+        shieldVisual = go.AddComponent<SpriteRenderer>();
+        shieldVisual.sprite = PlaceholderSprite.Ring();
+        shieldVisual.color = shieldColor;
+        shieldVisual.sortingOrder = 11;
+        shieldVisual.enabled = false;
     }
 
     void Update()
@@ -62,6 +102,9 @@ public class PlayerController : MonoBehaviour
 
         bool keyboardRun = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || Input.GetButton("Fire3");
         runHeld = keyboardRun || touchRunHeld;
+
+        bool keyboardLookDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
+        IsLookDownHeld = keyboardLookDown || touchLookDownHeld;
 
         if (Input.GetButtonDown("Jump"))
             jumpPressed = true;
@@ -78,6 +121,16 @@ public class PlayerController : MonoBehaviour
         UpdateTimers();
         TryBufferedJump();
         UpdateAnimator();
+        UpdateInvulnerabilityBlink();
+        UpdatePowerUpTimers();
+    }
+
+    void UpdatePowerUpTimers()
+    {
+        if (doubleJumpTimer > 0f)
+            doubleJumpTimer -= Time.deltaTime;
+        if (speedBoostTimer > 0f)
+            speedBoostTimer -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -97,12 +150,25 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        Collider2D groundHit = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        isGrounded = groundHit != null;
         if (isGrounded)
         {
             coyoteCounter = coyoteTime;
             jumpConsumed = false;
+            airJumpAvailable = true;
+
+            // No guardar como "posicion segura" si el suelo es una plataforma movil:
+            // podria haberse alejado para cuando el jugador muera y se use este punto para reaparecer.
+            if (groundHit.GetComponent<ElevatorPlatform>() == null)
+                lastGroundedPosition = transform.position;
         }
+    }
+
+    public bool HasStaticGroundBelow(Vector3 position, float maxDistance = 2f)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, maxDistance, groundLayer);
+        return hit.collider != null && hit.collider.GetComponent<ElevatorPlatform>() == null;
     }
 
     void UpdateTimers()
@@ -124,12 +190,21 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter = 0f;
             coyoteCounter = 0f;
             jumpConsumed = true;
+            return;
+        }
+
+        if (jumpBufferCounter > 0f && !isGrounded && DoubleJumpActive && airJumpAvailable)
+        {
+            Jump();
+            jumpBufferCounter = 0f;
+            airJumpAvailable = false;
         }
     }
 
     void ApplyHorizontalMovement()
     {
-        float targetSpeed = moveInput * (runHeld ? runSpeed : walkSpeed);
+        float speedMultiplier = SpeedBoostActive ? speedBoostMultiplier : 1f;
+        float targetSpeed = moveInput * (runHeld ? runSpeed : walkSpeed) * speedMultiplier;
         float accel = Mathf.Abs(targetSpeed) > 0.01f ? acceleration : deceleration;
         if (!isGrounded)
             accel *= airControl;
@@ -169,6 +244,35 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = point;
         rb.linearVelocity = Vector2.zero;
+        lastGroundedPosition = point;
+        invulnerabilityTimer = respawnInvulnerabilityDuration;
+        blinkTimer = 0f;
+        if (sr != null)
+            sr.enabled = true;
+    }
+
+    void UpdateInvulnerabilityBlink()
+    {
+        if (invulnerabilityTimer <= 0f)
+            return;
+
+        invulnerabilityTimer -= Time.deltaTime;
+
+        if (invulnerabilityTimer <= 0f)
+        {
+            invulnerabilityTimer = 0f;
+            if (sr != null)
+                sr.enabled = true;
+            return;
+        }
+
+        blinkTimer -= Time.deltaTime;
+        if (blinkTimer <= 0f)
+        {
+            blinkTimer = blinkInterval;
+            if (sr != null)
+                sr.enabled = !sr.enabled;
+        }
     }
 
     void UpdateAnimator()
@@ -188,6 +292,47 @@ public class PlayerController : MonoBehaviour
     public void SetRunHeld(bool held)
     {
         touchRunHeld = held;
+    }
+
+    public void SetLookDown(bool held)
+    {
+        touchLookDownHeld = held;
+    }
+
+    public void ActivateDoubleJump(float duration)
+    {
+        doubleJumpTimer = Mathf.Max(doubleJumpTimer, duration);
+    }
+
+    public void ActivateSpeedBoost(float duration)
+    {
+        speedBoostTimer = Mathf.Max(speedBoostTimer, duration);
+    }
+
+    public void ActivateShield()
+    {
+        hasShield = true;
+        if (shieldVisual != null)
+            shieldVisual.enabled = true;
+    }
+
+    public void TakeHit()
+    {
+        if (IsInvulnerable)
+            return;
+
+        if (hasShield)
+        {
+            hasShield = false;
+            if (shieldVisual != null)
+                shieldVisual.enabled = false;
+            invulnerabilityTimer = respawnInvulnerabilityDuration;
+            blinkTimer = 0f;
+            return;
+        }
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.LoseLife();
     }
 
     public void TryJump()

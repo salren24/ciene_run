@@ -226,7 +226,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -270,14 +270,14 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   target: {fileID: 0}
-  offset: {x: 0, y: 1.5, z: -10}
+  offset: {x: 0, y: 0.3, z: -10}
   smoothSpeed: 8
   findPlayerOnStart: 1
   useBounds: 1
   minX: -2
-  maxX: 62
-  minY: 0
-  maxY: 14
+  maxX: 130
+  minY: -18
+  maxY: 9
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,29 +468,63 @@ MonoBehaviour:
   obstacleSprite: {fileID: 21300000, guid: 26545f10e102470a853699a8e5965a77, type: 3}
   goalBeforeSprite: {fileID: 21300000, guid: abecf1843c1c4b488dc19560d51e60fa, type: 3}
   goalAfterSprite: {fileID: 21300000, guid: 8d739df583d6407bbedd650af03708db, type: 3}
-  coinCount: 14
+  actIEndX: 19
+  actIIEndX: 39
+  spawnCheckpoint: 1
+  checkpointX: 59
+  checkpointY: -0.5
+  completionThreshold: 0.7
+  coinCount: 0
   coinStartX: 3
   coinSpacing: 4
   coinY: 1.8
-  enemyCount: 3
+  coinPositions:
+  - {x: 12, y: 1.6, z: 0}
+  - {x: 16, y: 2.6, z: 0}
+  - {x: 20, y: 3.6, z: 0}
+  - {x: 24, y: 4.6, z: 0}
+  - {x: 30, y: 4.6, z: 0}
+  - {x: 34, y: 4.6, z: 0}
+  - {x: 38, y: 4.6, z: 0}
+  - {x: 44, y: 3.6, z: 0}
+  - {x: 48, y: 2.6, z: 0}
+  - {x: 52, y: 1.6, z: 0}
+  - {x: 56, y: 0.6, z: 0}
+  - {x: 62, y: 0.6, z: 0}
+  - {x: 66, y: 0.6, z: 0}
+  - {x: 70, y: 0.6, z: 0}
+  - {x: 82, y: -0.4, z: 0}
+  - {x: 86, y: -0.4, z: 0}
+  - {x: 90, y: -0.4, z: 0}
+  - {x: 105, y: 5.6, z: 0}
+  - {x: 109, y: 5.6, z: 0}
+  - {x: 120, y: 0.6, z: 0}
+  - {x: 124, y: 0.6, z: 0}
+  enemyCount: 0
   enemyStartX: 16
   enemySpacing: 14
   enemyY: 0.5
-  obstacleX:
-  - 26
-  - 38
-  - 50
+  obstacleX: []
   obstacleY: 0.5
-  spawnCheckpoint: 1
-  checkpointX: 29
-  checkpointY: 1
-  actIEndX: 19
-  actIIEndX: 39
-  completionThreshold: 0.7
-  goalX: 58
-  goalY: 1
-  deathY: -8
-  deathWidth: 140
+  goalX: 128
+  goalY: 0.5
+  deathY: -16
+  deathWidth: 160
+  deathCenterX: 63.5
+  finalCoinScoreValue: 0
+  specialCoinPositions:
+  - {x: 36, y: 4.8, z: 0}
+  - {x: 107, y: 5.8, z: 0}
+  - {x: 122, y: 0.8, z: 0}
+  specialCoinScale: 1.6
+  specialCoinScoreValue: 500
+  movingObstacles: []
+  elevators:
+  - pointA: {x: 98, y: -1.5, z: 0}
+    pointB: {x: 98, y: 5, z: 0}
+    speed: 2
+    width: 3
+  chargeEnemySpawnTimes: []
 --- !u!1 &700000001
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,12 +779,27 @@ MonoBehaviour:
   groundTop: {fileID: 11400000, guid: 7827ecc8303c7ba4a9d90036446622ce, type: 2}
   groundFill: {fileID: 11400000, guid: 99452257617c3c64a8e8033b8c41a248, type: 2}
   startX: -8
-  endX: 65
+  endX: 135
   groundY: -1
   groundDepth: 4
   platforms:
-  - {x: 20, y: 3, z: 4}
-  - {x: 40, y: 4, z: 3}
+  - {x: 11, y: 0, z: 4}
+  - {x: 15, y: 1, z: 4}
+  - {x: 19, y: 2, z: 4}
+  - {x: 23, y: 3, z: 4}
+  - {x: 27, y: 3, z: 16}
+  - {x: 43, y: 2, z: 4}
+  - {x: 47, y: 1, z: 4}
+  - {x: 51, y: 0, z: 4}
+  - {x: 55, y: -1, z: 4}
+  - {x: 102, y: 4, z: 12}
+  gaps:
+  - {x: 11, y: 58}
+  - {x: 76, y: 78}
+  - {x: 95, y: 113}
+  - {x: 114, y: 117}
+  terrainProfile:
+  - {startX: 79, endX: 94, height: -1}
   buildOnAwake: 1
   clearBeforeBuild: 1
 --- !u!1660057539 &9223372036854775807

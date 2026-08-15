@@ -5,6 +5,7 @@ public class CoinPickup : MonoBehaviour
 {
     public int coinValue = 1;
     public int scoreValue = 200;
+    public bool isSpecial = false;
     bool collected;
 
     void Reset()
@@ -21,7 +22,7 @@ public class CoinPickup : MonoBehaviour
         collected = true;
 
         if (GameManager.Instance != null)
-            GameManager.Instance.AddCoin(coinValue, scoreValue);
+            GameManager.Instance.AddCoin(coinValue, scoreValue, isSpecial);
         else
             Debug.Log("Moneda recogida (+" + scoreValue + ")");
 

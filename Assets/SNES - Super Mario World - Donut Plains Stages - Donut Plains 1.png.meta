@@ -1,0 +1,2860 @@
+fileFormatVersion: 2
+guid: fd167ee6342a4e74da827b5839b392d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1586384702549908584
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_0
+  - first:
+      213: -7300578770780225281
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_1
+  - first:
+      213: -5402525643120996634
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_2
+  - first:
+      213: -511880294105066534
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_3
+  - first:
+      213: 1675595108862234895
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_4
+  - first:
+      213: -402272406205107892
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_5
+  - first:
+      213: -1179274957002643150
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_6
+  - first:
+      213: -8794668503100943562
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_7
+  - first:
+      213: 2720082492445862298
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_8
+  - first:
+      213: -2880305527751826553
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_9
+  - first:
+      213: 8734235808245376936
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_10
+  - first:
+      213: 7388323565371021106
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_11
+  - first:
+      213: -3093057540914697148
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_12
+  - first:
+      213: -5181454876237087911
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_13
+  - first:
+      213: -2363004301149208388
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_14
+  - first:
+      213: 4546912419284462151
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_15
+  - first:
+      213: 879801994950425281
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_16
+  - first:
+      213: 6214441398872817036
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_17
+  - first:
+      213: -6521087296910492844
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_18
+  - first:
+      213: -3755648282087259089
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_19
+  - first:
+      213: 7377757789264710698
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_20
+  - first:
+      213: 1553741236963252106
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_21
+  - first:
+      213: -5863856868818651604
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_22
+  - first:
+      213: 2098033061916296063
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_23
+  - first:
+      213: -3974689736503577358
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_24
+  - first:
+      213: -2220788489582252344
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_25
+  - first:
+      213: 2871330746834775159
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_26
+  - first:
+      213: 6055618390898890319
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_27
+  - first:
+      213: 2806993744064996102
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_28
+  - first:
+      213: -8013008877246578307
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_29
+  - first:
+      213: -6318481825761250514
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_30
+  - first:
+      213: -4028836674187010839
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_31
+  - first:
+      213: 7438673877719475042
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_32
+  - first:
+      213: -8881357513826408690
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_33
+  - first:
+      213: 7107468553377387457
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_34
+  - first:
+      213: -8746438920878415554
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_35
+  - first:
+      213: -5446022018063411920
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_36
+  - first:
+      213: -4241543300602636649
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_37
+  - first:
+      213: -7034879316911639538
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_38
+  - first:
+      213: -6230613112611975398
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_39
+  - first:
+      213: 1355481305205288722
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_40
+  - first:
+      213: 3148495271962655003
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_41
+  - first:
+      213: 7598506173168428253
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_42
+  - first:
+      213: -4851311693365354746
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_43
+  - first:
+      213: -7655210434313004919
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_44
+  - first:
+      213: 4481952089162943005
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_45
+  - first:
+      213: -2996916220298372242
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_46
+  - first:
+      213: 5670972921196347531
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_47
+  - first:
+      213: -6542077921190155481
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_48
+  - first:
+      213: 7288577687319398429
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_49
+  - first:
+      213: 9155158099535381587
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_50
+  - first:
+      213: 8559342231631212866
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_51
+  - first:
+      213: -7013474687286341835
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_52
+  - first:
+      213: -278782314345797043
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_53
+  - first:
+      213: 7621444040902974077
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_54
+  - first:
+      213: 1580792922304154514
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_55
+  - first:
+      213: 1498274108621240118
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_56
+  - first:
+      213: 5743648917333500412
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_57
+  - first:
+      213: 707598180825143822
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_58
+  - first:
+      213: 3252121858380328950
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_59
+  - first:
+      213: -7177405810292766112
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_60
+  - first:
+      213: 8882912008974895554
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_61
+  - first:
+      213: -1859057052074066541
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_62
+  - first:
+      213: 7554011320508943065
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_63
+  - first:
+      213: 6986715033525943748
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_64
+  - first:
+      213: -1987800491623838142
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_65
+  - first:
+      213: 9215321902658700861
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_66
+  - first:
+      213: -6681146540931131196
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_67
+  - first:
+      213: -3112242109737832952
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_68
+  - first:
+      213: -7117797024905336020
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_69
+  - first:
+      213: -2299056629240030387
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_70
+  - first:
+      213: 8507001345757463663
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_71
+  - first:
+      213: 2166342334315796267
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_72
+  - first:
+      213: 414626821008228205
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_73
+  - first:
+      213: -8054580813227059159
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_74
+  - first:
+      213: -7956176228243566717
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_75
+  - first:
+      213: -6033693156946937867
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_76
+  - first:
+      213: -6524500492577666701
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_77
+  - first:
+      213: 7491975478835072927
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_78
+  - first:
+      213: 736920414363973761
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_79
+  - first:
+      213: 4260118081854709731
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_80
+  - first:
+      213: 4114406419651849328
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_81
+  - first:
+      213: 3013972064655942964
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_82
+  - first:
+      213: 1143198519437736018
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_83
+  - first:
+      213: 8162912104217439777
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_84
+  - first:
+      213: -1260382055725875804
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_85
+  - first:
+      213: 376545827936314441
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_86
+  - first:
+      213: 3327350119974295110
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_87
+  - first:
+      213: -5071846375792942473
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_88
+  - first:
+      213: -4801540426161429444
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_89
+  - first:
+      213: 2643762722709542344
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_90
+  - first:
+      213: 3018955606282210465
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_91
+  - first:
+      213: -4404168559697989369
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_92
+  - first:
+      213: -7285794005490577242
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_93
+  - first:
+      213: -4016594965191158361
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_94
+  - first:
+      213: -6207728838131074585
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_95
+  - first:
+      213: 989478213272868901
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_96
+  - first:
+      213: -1980817109168235679
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_97
+  - first:
+      213: -1820539266432730364
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_98
+  - first:
+      213: -2424248749850811099
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_99
+  - first:
+      213: 5477683478946432977
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_100
+  - first:
+      213: -3557601131318454260
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_101
+  - first:
+      213: 525064932507040275
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_102
+  - first:
+      213: -8363530169727492106
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_103
+  - first:
+      213: 4491048056423495444
+    second: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_104
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_0
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893266f94870cf9e0800000000000000
+      internalID: -1586384702549908584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_1
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff003e0c9422faa90800000000000000
+      internalID: -7300578770780225281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_2
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee85d72d8f5605b0800000000000000
+      internalID: -5402525643120996634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_3
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad35856a59f65e8f0800000000000000
+      internalID: -511880294105066534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_4
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f019d13bfd8e04710800000000000000
+      internalID: 1675595108862234895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_5
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41f33db067da6af0800000000000000
+      internalID: -402272406205107892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_6
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 383
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239e757bcaf52afe0800000000000000
+      internalID: -1179274957002643150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_7
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6331a53b79f03f580800000000000000
+      internalID: -8794668503100943562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_8
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99aef18d9cafb520800000000000000
+      internalID: 2720082492445862298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_9
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78322cd02691708d0800000000000000
+      internalID: -2880305527751826553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_10
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a766fe013d363970800000000000000
+      internalID: 8734235808245376936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_11
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237569f3329988660800000000000000
+      internalID: 7388323565371021106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_12
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44cafe3ed804315d0800000000000000
+      internalID: -3093057540914697148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_13
+      rect:
+        serializedVersion: 2
+        x: 1937
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95b3c2a1e36c718b0800000000000000
+      internalID: -5181454876237087911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_14
+      rect:
+        serializedVersion: 2
+        x: 1953
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0084b9b1ce43fd0800000000000000
+      internalID: -2363004301149208388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_15
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a234831c0e91f30800000000000000
+      internalID: 4546912419284462151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_16
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca33b5c04fa53c00800000000000000
+      internalID: 879801994950425281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_17
+      rect:
+        serializedVersion: 2
+        x: 3503
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8dbb49d6812e3650800000000000000
+      internalID: 6214441398872817036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_18
+      rect:
+        serializedVersion: 2
+        x: 3777
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b765657a17085a0800000000000000
+      internalID: -6521087296910492844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_19
+      rect:
+        serializedVersion: 2
+        x: 3793
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2402e429c141ebc0800000000000000
+      internalID: -3755648282087259089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_20
+      rect:
+        serializedVersion: 2
+        x: 3937
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c8efbce9f036660800000000000000
+      internalID: 7377757789264710698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_21
+      rect:
+        serializedVersion: 2
+        x: 3953
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8712164c6fff8510800000000000000
+      internalID: 1553741236963252106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_22
+      rect:
+        serializedVersion: 2
+        x: 4447
+        y: 303
+        width: 34
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c267450fe356f9ea0800000000000000
+      internalID: -5863856868818651604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_23
+      rect:
+        serializedVersion: 2
+        x: 4607
+        y: 255
+        width: 146
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73cb8634f5bd1d10800000000000000
+      internalID: 2098033061916296063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_24
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 335
+        width: 178
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f430535eb017d8c0800000000000000
+      internalID: -3974689736503577358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_25
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce6c2d82ac2e21e0800000000000000
+      internalID: -2220788489582252344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_26
+      rect:
+        serializedVersion: 2
+        x: 2257
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c6ebde91409d720800000000000000
+      internalID: 2871330746834775159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_27
+      rect:
+        serializedVersion: 2
+        x: 2273
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46d9dca7d0e90450800000000000000
+      internalID: 6055618390898890319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_28
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603ecb920f174f620800000000000000
+      internalID: 2806993744064996102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_29
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d718aa181e21cc090800000000000000
+      internalID: -8013008877246578307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_30
+      rect:
+        serializedVersion: 2
+        x: 3169
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e233db7914e3058a0800000000000000
+      internalID: -6318481825761250514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_31
+      rect:
+        serializedVersion: 2
+        x: 3185
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec5409f362b618c0800000000000000
+      internalID: -4028836674187010839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_32
+      rect:
+        serializedVersion: 2
+        x: 3297
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2636271ea7a7b3760800000000000000
+      internalID: 7438673877719475042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_33
+      rect:
+        serializedVersion: 2
+        x: 3313
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07612985641fb480800000000000000
+      internalID: -8881357513826408690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_34
+      rect:
+        serializedVersion: 2
+        x: 3583
+        y: 339
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c391580efcc2a260800000000000000
+      internalID: 7107468553377387457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_35
+      rect:
+        serializedVersion: 2
+        x: 3809
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e31246f54286e9680800000000000000
+      internalID: -8746438920878415554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_36
+      rect:
+        serializedVersion: 2
+        x: 3825
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035df5e24d7db64b0800000000000000
+      internalID: -5446022018063411920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_37
+      rect:
+        serializedVersion: 2
+        x: 3841
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796542c37d20325c0800000000000000
+      internalID: -4241543300602636649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_38
+      rect:
+        serializedVersion: 2
+        x: 3889
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e043dbd98861f5e90800000000000000
+      internalID: -7034879316911639538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_39
+      rect:
+        serializedVersion: 2
+        x: 3905
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f4fd1a26a6889a0800000000000000
+      internalID: -6230613112611975398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_40
+      rect:
+        serializedVersion: 2
+        x: 3921
+        y: 335
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21fa170c013afc210800000000000000
+      internalID: 1355481305205288722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_41
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19b456b4c3b1bb20800000000000000
+      internalID: 3148495271962655003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_42
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4215b1b11537960800000000000000
+      internalID: 7598506173168428253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_43
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f524ed7bdacacb0800000000000000
+      internalID: -4851311693365354746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_44
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988d8e54baa33c590800000000000000
+      internalID: -7655210434313004919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_45
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a80eebda7133e30800000000000000
+      internalID: 4481952089162943005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_46
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b52837390d866d0800000000000000
+      internalID: -2996916220298372242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_47
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8084c263d753be40800000000000000
+      internalID: 5670972921196347531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_48
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72be886caced535a0800000000000000
+      internalID: -6542077921190155481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_49
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18c2824aca362560800000000000000
+      internalID: 7288577687319398429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_50
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354c85119c7ad0f70800000000000000
+      internalID: 9155158099535381587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_51
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241b06b0964e8c670800000000000000
+      internalID: 8559342231631212866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_52
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f8a1f4ee12bae90800000000000000
+      internalID: -7013474687286341835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_53
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ae1cf46f0912cf0800000000000000
+      internalID: -278782314345797043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_54
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a1a8d99fec4c960800000000000000
+      internalID: 7621444040902974077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_55
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 319
+        width: 226
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b046599ca10f510800000000000000
+      internalID: 1580792922304154514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_56
+      rect:
+        serializedVersion: 2
+        x: 2817
+        y: 319
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637b8841d50fac410800000000000000
+      internalID: 1498274108621240118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_57
+      rect:
+        serializedVersion: 2
+        x: 2833
+        y: 319
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf16838524a85bf40800000000000000
+      internalID: 5743648917333500412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_58
+      rect:
+        serializedVersion: 2
+        x: 2849
+        y: 319
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a9bc3ebc4e1d900800000000000000
+      internalID: 707598180825143822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_59
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 319
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffea07899bd12d20800000000000000
+      internalID: 3252121858380328950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_60
+      rect:
+        serializedVersion: 2
+        x: 2881
+        y: 319
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06accac617bb46c90800000000000000
+      internalID: -7177405810292766112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_61
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 0
+        width: 2049
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c900029861764b70800000000000000
+      internalID: 8882912008974895554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_62
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39db0f9f57d4336e0800000000000000
+      internalID: -1859057052074066541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_63
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da073ce54d35d860800000000000000
+      internalID: 7554011320508943065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_64
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cdf1384e4cc5f060800000000000000
+      internalID: 6986715033525943748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_65
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e0a641cf9e964e0800000000000000
+      internalID: -1987800491623838142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_66
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3649d2127663ef70800000000000000
+      internalID: 9215321902658700861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_67
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 287
+        width: 98
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c858778e9cc743a0800000000000000
+      internalID: -6681146540931131196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_68
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e60126a481fc4d0800000000000000
+      internalID: -3112242109737832952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_69
+      rect:
+        serializedVersion: 2
+        x: 2129
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b6f2b4151883d90800000000000000
+      internalID: -7117797024905336020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_70
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b14a73d2c1810e0800000000000000
+      internalID: -2299056629240030387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_71
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64c4a5e6a0fe0670800000000000000
+      internalID: 8507001345757463663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_72
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2798c210e4601e10800000000000000
+      internalID: 2166342334315796267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_73
+      rect:
+        serializedVersion: 2
+        x: 2385
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f7b8c95ec01c500800000000000000
+      internalID: 414626821008228205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_74
+      rect:
+        serializedVersion: 2
+        x: 2401
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9289ce4ec61683090800000000000000
+      internalID: -8054580813227059159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_75
+      rect:
+        serializedVersion: 2
+        x: 2417
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f8221cfdbf59190800000000000000
+      internalID: -7956176228243566717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_76
+      rect:
+        serializedVersion: 2
+        x: 2433
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7f878aa04044ca0800000000000000
+      internalID: -6033693156946937867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_77
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 287
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3790c0bce515475a0800000000000000
+      internalID: -6524500492577666701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_78
+      rect:
+        serializedVersion: 2
+        x: 2657
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fc6e9f008d8f760800000000000000
+      internalID: 7491975478835072927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_79
+      rect:
+        serializedVersion: 2
+        x: 2673
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188f5e566311a3a00800000000000000
+      internalID: 736920414363973761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_80
+      rect:
+        serializedVersion: 2
+        x: 2689
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef1b2a03dafe1b30800000000000000
+      internalID: 4260118081854709731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_81
+      rect:
+        serializedVersion: 2
+        x: 2705
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c6fe0f6de491930800000000000000
+      internalID: 4114406419651849328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_82
+      rect:
+        serializedVersion: 2
+        x: 2721
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435a4c4cf97c3d920800000000000000
+      internalID: 3013972064655942964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_83
+      rect:
+        serializedVersion: 2
+        x: 2993
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258b6da1ff47ddf00800000000000000
+      internalID: 1143198519437736018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_84
+      rect:
+        serializedVersion: 2
+        x: 3009
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12eed905f4d784170800000000000000
+      internalID: 8162912104217439777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_85
+      rect:
+        serializedVersion: 2
+        x: 3025
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4adbe27b239328ee0800000000000000
+      internalID: -1260382055725875804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_86
+      rect:
+        serializedVersion: 2
+        x: 3041
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 944accb7f62c93500800000000000000
+      internalID: 376545827936314441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_87
+      rect:
+        serializedVersion: 2
+        x: 3057
+        y: 271
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646db681e4f1d2e20800000000000000
+      internalID: 3327350119974295110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_88
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 179
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772628fc79e2d99b0800000000000000
+      internalID: -5071846375792942473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_89
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 179
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3468fb0c608d5db0800000000000000
+      internalID: -4801540426161429444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_90
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 159
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c59585603880b420800000000000000
+      internalID: 2643762722709542344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_91
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 159
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac0029f02c75e920800000000000000
+      internalID: 3018955606282210465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_92
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 159
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701f14c770041e2c0800000000000000
+      internalID: -4404168559697989369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_93
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 159
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0501c24f8a3ea90800000000000000
+      internalID: -7285794005490577242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_94
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a59825f8203248c0800000000000000
+      internalID: -4016594965191158361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_95
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9bf3df287b9d9a0800000000000000
+      internalID: -6207728838131074585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_96
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5281e1741355bbd00800000000000000
+      internalID: 989478213272868901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_97
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16bd2038559b284e0800000000000000
+      internalID: -1980817109168235679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_98
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 95
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b70acce252cb6e0800000000000000
+      internalID: -1820539266432730364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_99
+      rect:
+        serializedVersion: 2
+        x: 2849
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52525f13b965b5ed0800000000000000
+      internalID: -2424248749850811099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_100
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 143
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7c0a22a14a40c40800000000000000
+      internalID: 5477683478946432977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_101
+      rect:
+        serializedVersion: 2
+        x: 2943
+        y: 95
+        width: 34
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c085c3bbe9cd0aec0800000000000000
+      internalID: -3557601131318454260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1729
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ab81236c7694700800000000000000
+      internalID: 525064932507040275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_103
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 0
+        width: 786
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff512d5f95ceeb80800000000000000
+      internalID: -8363530169727492106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_104
+      rect:
+        serializedVersion: 2
+        x: 2575
+        y: 0
+        width: 466
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417b458a968635e30800000000000000
+      internalID: 4491048056423495444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_0: -1586384702549908584
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_1: -7300578770780225281
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_10: 8734235808245376936
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_100: 5477683478946432977
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_101: -3557601131318454260
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_102: 525064932507040275
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_103: -8363530169727492106
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_104: 4491048056423495444
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_11: 7388323565371021106
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_12: -3093057540914697148
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_13: -5181454876237087911
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_14: -2363004301149208388
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_15: 4546912419284462151
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_16: 879801994950425281
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_17: 6214441398872817036
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_18: -6521087296910492844
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_19: -3755648282087259089
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_2: -5402525643120996634
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_20: 7377757789264710698
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_21: 1553741236963252106
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_22: -5863856868818651604
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_23: 2098033061916296063
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_24: -3974689736503577358
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_25: -2220788489582252344
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_26: 2871330746834775159
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_27: 6055618390898890319
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_28: 2806993744064996102
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_29: -8013008877246578307
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_3: -511880294105066534
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_30: -6318481825761250514
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_31: -4028836674187010839
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_32: 7438673877719475042
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_33: -8881357513826408690
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_34: 7107468553377387457
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_35: -8746438920878415554
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_36: -5446022018063411920
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_37: -4241543300602636649
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_38: -7034879316911639538
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_39: -6230613112611975398
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_4: 1675595108862234895
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_40: 1355481305205288722
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_41: 3148495271962655003
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_42: 7598506173168428253
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_43: -4851311693365354746
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_44: -7655210434313004919
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_45: 4481952089162943005
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_46: -2996916220298372242
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_47: 5670972921196347531
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_48: -6542077921190155481
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_49: 7288577687319398429
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_5: -402272406205107892
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_50: 9155158099535381587
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_51: 8559342231631212866
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_52: -7013474687286341835
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_53: -278782314345797043
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_54: 7621444040902974077
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_55: 1580792922304154514
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_56: 1498274108621240118
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_57: 5743648917333500412
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_58: 707598180825143822
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_59: 3252121858380328950
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_6: -1179274957002643150
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_60: -7177405810292766112
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_61: 8882912008974895554
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_62: -1859057052074066541
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_63: 7554011320508943065
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_64: 6986715033525943748
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_65: -1987800491623838142
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_66: 9215321902658700861
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_67: -6681146540931131196
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_68: -3112242109737832952
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_69: -7117797024905336020
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_7: -8794668503100943562
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_70: -2299056629240030387
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_71: 8507001345757463663
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_72: 2166342334315796267
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_73: 414626821008228205
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_74: -8054580813227059159
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_75: -7956176228243566717
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_76: -6033693156946937867
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_77: -6524500492577666701
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_78: 7491975478835072927
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_79: 736920414363973761
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_8: 2720082492445862298
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_80: 4260118081854709731
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_81: 4114406419651849328
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_82: 3013972064655942964
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_83: 1143198519437736018
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_84: 8162912104217439777
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_85: -1260382055725875804
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_86: 376545827936314441
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_87: 3327350119974295110
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_88: -5071846375792942473
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_89: -4801540426161429444
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_9: -2880305527751826553
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_90: 2643762722709542344
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_91: 3018955606282210465
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_92: -4404168559697989369
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_93: -7285794005490577242
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_94: -4016594965191158361
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_95: -6207728838131074585
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_96: 989478213272868901
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_97: -1980817109168235679
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_98: -1820539266432730364
+      SNES - Super Mario World - Donut Plains Stages - Donut Plains 1_99: -2424248749850811099
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

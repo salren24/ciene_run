@@ -12,15 +12,13 @@ public class ChargeEnemySpawner : MonoBehaviour
 
     bool[] spawned;
 
-    void Awake()
-    {
-        spawned = new bool[spawnTimes != null ? spawnTimes.Length : 0];
-    }
-
     void Update()
     {
         if (GameManager.Instance == null || spawnTimes == null)
             return;
+
+        if (spawned == null || spawned.Length != spawnTimes.Length)
+            spawned = new bool[spawnTimes.Length];
 
         float elapsed = GameManager.Instance.levelTime - GameManager.Instance.TimeLeft;
 
@@ -50,7 +48,7 @@ public class ChargeEnemySpawner : MonoBehaviour
         {
             sr.sprite = chargeFrames[0];
 
-            const float targetHeight = 1.3f;
+            const float targetHeight = 1.7f;
             float nativeHeight = chargeFrames[0].rect.height / chargeFrames[0].pixelsPerUnit;
             float scale = nativeHeight > 0f ? targetHeight / nativeHeight : 1f;
             enemy.transform.localScale = new Vector3(scale, scale, 1f);

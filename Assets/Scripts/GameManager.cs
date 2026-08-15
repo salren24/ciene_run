@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public string playerLabel = "CIENE";
     public float levelTime = 300f;
     public int startingLives = 3;
+    public float respawnBackDistance = 3f;
 
     [Header("Escenas")]
     public string characterSelectScene = "CharacterSelect";
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     public int Score { get; private set; }
     public int Coins { get; private set; }
     public int LevelCoinsCollected { get; private set; }
+    public int NormalCoinsCollected { get; private set; }
+    public int SpecialCoinsCollected { get; private set; }
     public int Lives { get; private set; }
     public float TimeLeft { get; private set; }
     public bool IsPaused { get; private set; }
@@ -72,6 +75,8 @@ public class GameManager : MonoBehaviour
         IsGameCompleted = false;
         IsLevelSummary = false;
         LevelCoinsCollected = 0;
+        NormalCoinsCollected = 0;
+        SpecialCoinsCollected = 0;
         HasRespawnPoint = false;
         Time.timeScale = 1f;
         NotifyHud();
@@ -128,10 +133,14 @@ public class GameManager : MonoBehaviour
         NotifyHud();
     }
 
-    public void AddCoin(int amount = 1, int scoreValue = 200)
+    public void AddCoin(int amount = 1, int scoreValue = 200, bool isSpecial = false)
     {
         Coins += amount;
         LevelCoinsCollected += amount;
+        if (isSpecial)
+            SpecialCoinsCollected += amount;
+        else
+            NormalCoinsCollected += amount;
         AddScore(scoreValue * amount);
 
         if (Coins >= 100)
@@ -166,14 +175,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         IsPaused = false;
 
-        if (HasRespawnPoint)
+        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player != null)
         {
-            PlayerController player = FindAnyObjectByType<PlayerController>();
-            if (player != null)
-            {
-                player.RespawnAt(RespawnPoint);
-                return;
-            }
+            // LastGroundedPosition siempre es segura (se inicializa en el spawn y solo se
+            // actualiza parado sobre suelo estatico). Nunca usar la posicion actual del jugador
+            // aqui: en el momento de morir puede estar cayendo en pleno hueco.
+            Vector3 grounded = player.LastGroundedPosition;
+            Vector3 checkpointOrSpawn = HasRespawnPoint ? RespawnPoint : grounded;
+            Vector3 target = grounded.x >= checkpointOrSpawn.x ? grounded : checkpointOrSpawn;
+
+            // Si retroceder un poco desde ahi tambien cae sobre suelo real, usar ese (menos castigo).
+            Vector3 nearDeath = grounded + Vector3.left * respawnBackDistance;
+            if (nearDeath.x > target.x && player.HasStaticGroundBelow(nearDeath + Vector3.up * 0.5f))
+                target = nearDeath;
+
+            player.RespawnAt(target);
+            return;
         }
 
         SceneManager.LoadScene(CurrentLevelScene);

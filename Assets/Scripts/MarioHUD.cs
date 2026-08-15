@@ -14,12 +14,17 @@ public class MarioHUD : MonoBehaviour
     GameObject gameOverPanel;
     GameObject completedPanel;
     GameObject summaryPanel;
-    Image summaryImage;
     Text summaryScoreLabel;
+    Text summaryNormalCoinsLabel;
+    Text summarySpecialCoinsLabel;
+    Text powerUpStatusLabel;
     Font font;
+
+    PlayerController cachedPlayer;
 
     static readonly Color Gold = new Color(1f, 0.85f, 0.2f, 1f);
     static readonly Color Panel = new Color(0.06f, 0.06f, 0.18f, 0.94f);
+    static readonly Color PowerUpText = new Color(0.55f, 0.9f, 1f, 1f);
 
     void Awake()
     {
@@ -104,9 +109,36 @@ public class MarioHUD : MonoBehaviour
         livesLabel = CreateText(bar.transform, "LivesValue", "x3", new Vector2(520, -14), new Vector2(120, 32), 26, Gold);
 
         CreateText(canvasGo.transform, "ControlsHint",
-            "← → Mover   |   Shift Correr   |   Espacio Saltar   |   Esc / P Pausa",
+            "← → Mover   |   Shift Correr   |   Espacio Saltar   |   ↓ Mirar abajo   |   Esc / P Pausa",
             new Vector2(0, 26), new Vector2(1000, 28), 15, new Color(1f, 1f, 1f, 0.7f),
             new Vector2(0.5f, 0f), new Vector2(0.5f, 0f));
+
+        powerUpStatusLabel = CreateText(canvasGo.transform, "PowerUpStatus", "",
+            new Vector2(0, -98), new Vector2(900, 30), 18, PowerUpText,
+            new Vector2(0.5f, 1f), new Vector2(0.5f, 1f));
+    }
+
+    void Update()
+    {
+        if (powerUpStatusLabel == null)
+            return;
+
+        if (cachedPlayer == null)
+        {
+            cachedPlayer = FindAnyObjectByType<PlayerController>();
+            if (cachedPlayer == null)
+                return;
+        }
+
+        string status = "";
+        if (cachedPlayer.HasShield)
+            status += "🛡 ESCUDO   ";
+        if (cachedPlayer.DoubleJumpActive)
+            status += "⇈ DOBLE SALTO   ";
+        if (cachedPlayer.SpeedBoostActive)
+            status += "⚡ VELOCIDAD   ";
+
+        powerUpStatusLabel.text = status;
     }
 
     void BuildPausePanel()
@@ -161,19 +193,16 @@ public class MarioHUD : MonoBehaviour
 
         CreateText(summaryPanel.transform, "Title", "¡NIVEL COMPLETADO!", new Vector2(0, 185), new Vector2(480, 40), 28, Gold);
 
-        GameObject imageGo = new GameObject("SummaryImage");
-        imageGo.transform.SetParent(summaryPanel.transform, false);
-        RectTransform imgRect = imageGo.AddComponent<RectTransform>();
-        imgRect.anchorMin = new Vector2(0.5f, 0.5f);
-        imgRect.anchorMax = new Vector2(0.5f, 0.5f);
-        imgRect.pivot = new Vector2(0.5f, 0.5f);
-        imgRect.sizeDelta = new Vector2(420, 236);
-        imgRect.anchoredPosition = new Vector2(0, 45);
-        summaryImage = imageGo.AddComponent<Image>();
-        summaryImage.preserveAspect = true;
+        CreateText(summaryPanel.transform, "NormalCoinsTitle", "MONEDAS NORMALES", new Vector2(0, 100), new Vector2(420, 26), 18, Color.white);
+        summaryNormalCoinsLabel = CreateText(summaryPanel.transform, "NormalCoinsValue", "0",
+            new Vector2(0, 65), new Vector2(420, 34), 28, Color.white);
+
+        CreateText(summaryPanel.transform, "SpecialCoinsTitle", "MONEDAS ESPECIALES", new Vector2(0, 15), new Vector2(420, 26), 18, Gold);
+        summarySpecialCoinsLabel = CreateText(summaryPanel.transform, "SpecialCoinsValue", "0",
+            new Vector2(0, -20), new Vector2(420, 34), 28, Gold);
 
         summaryScoreLabel = CreateText(summaryPanel.transform, "SummaryScore", "SCORE: 000000",
-            new Vector2(0, -105), new Vector2(420, 30), 20, Color.white);
+            new Vector2(0, -80), new Vector2(420, 34), 24, Color.white);
 
         CreateMenuButton(summaryPanel.transform, "CONTINUAR", new Vector2(0, -170),
             () => GameManager.Instance.ContinueAfterSummary());
@@ -239,14 +268,16 @@ public class MarioHUD : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
-        if (summaryImage != null)
+        var gm = GameManager.Instance;
+        if (gm != null)
         {
-            summaryImage.sprite = image;
-            summaryImage.gameObject.SetActive(image != null);
+            if (summaryScoreLabel != null)
+                summaryScoreLabel.text = "SCORE: " + gm.Score.ToString("000000");
+            if (summaryNormalCoinsLabel != null)
+                summaryNormalCoinsLabel.text = gm.NormalCoinsCollected.ToString();
+            if (summarySpecialCoinsLabel != null)
+                summarySpecialCoinsLabel.text = gm.SpecialCoinsCollected.ToString();
         }
-
-        if (summaryScoreLabel != null && GameManager.Instance != null)
-            summaryScoreLabel.text = "SCORE: " + GameManager.Instance.Score.ToString("000000");
 
         if (summaryPanel != null)
             summaryPanel.SetActive(true);

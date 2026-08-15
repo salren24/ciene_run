@@ -151,6 +151,13 @@ public class ChargeEnemy : MonoBehaviour
 
     void HurtPlayer()
     {
+        PlayerController pc = player != null ? player.GetComponent<PlayerController>() : null;
+        if (pc != null)
+        {
+            pc.TakeHit();
+            return;
+        }
+
         if (GameManager.Instance != null)
             GameManager.Instance.LoseLife();
     }

@@ -6,10 +6,24 @@ public class TouchControls : MonoBehaviour
 {
     [Header("Tamaños")]
     public float buttonSize = 110f;
-    public float jumpButtonSize = 140f;
+    public float jumpButtonSize = 150f;
 
-    static readonly Color Normal = new Color(1f, 1f, 1f, 0.35f);
-    static readonly Color Pressed = new Color(1f, 1f, 1f, 0.6f);
+    static readonly Color ShadowColor = new Color(0f, 0f, 0f, 0.35f);
+    static readonly Vector2 ShadowOffset = new Vector2(0f, -6f);
+
+    static readonly Color MoveColor = new Color(0.16f, 0.2f, 0.32f, 0.72f);
+    static readonly Color MovePressed = new Color(0.26f, 0.32f, 0.48f, 0.9f);
+
+    static readonly Color RunColor = new Color(0.85f, 0.5f, 0.08f, 0.75f);
+    static readonly Color RunPressed = new Color(1f, 0.62f, 0.12f, 0.92f);
+
+    static readonly Color LookDownColor = new Color(0.1f, 0.5f, 0.55f, 0.72f);
+    static readonly Color LookDownPressed = new Color(0.15f, 0.68f, 0.75f, 0.9f);
+
+    static readonly Color JumpColor = new Color(0.78f, 0.14f, 0.18f, 0.78f);
+    static readonly Color JumpPressed = new Color(0.95f, 0.22f, 0.25f, 0.95f);
+
+    static readonly Color RingColor = new Color(1f, 1f, 1f, 0.55f);
 
     PlayerController player;
     Font font;
@@ -17,6 +31,7 @@ public class TouchControls : MonoBehaviour
     bool leftHeld;
     bool rightHeld;
     bool runHeld;
+    bool lookDownHeld;
 
     void Awake()
     {
@@ -42,6 +57,7 @@ public class TouchControls : MonoBehaviour
 
         player.SetMoveInput(move);
         player.SetRunHeld(runHeld);
+        player.SetLookDown(lookDownHeld);
     }
 
     void EnsureEventSystem()
@@ -68,91 +84,100 @@ public class TouchControls : MonoBehaviour
         scaler.referenceResolution = new Vector2(1280, 720);
         canvasGo.AddComponent<GraphicRaycaster>();
 
-        float gap = 20f;
+        float gap = 24f;
 
-        CreateHoldButton(canvasGo.transform, "LeftButton", "<",
-            new Vector2(90, 90), new Vector2(buttonSize, buttonSize),
-            () => leftHeld = true, () => leftHeld = false);
+        // Cluster izquierdo: salto (principal) + mirar abajo
+        CreateCircleButton(canvasGo.transform, "JumpButton", "SALTO",
+            new Vector2(110, 100), jumpButtonSize, JumpColor, JumpPressed,
+            () => { if (player != null) player.TryJump(); },
+            () => { if (player != null) player.TryJumpRelease(); });
 
-        CreateHoldButton(canvasGo.transform, "RightButton", ">",
-            new Vector2(90 + buttonSize + gap, 90), new Vector2(buttonSize, buttonSize),
-            () => rightHeld = true, () => rightHeld = false);
+        CreateCircleButton(canvasGo.transform, "LookDownButton", "▼",
+            new Vector2(110 + jumpButtonSize + 30, 100), buttonSize * 0.85f, LookDownColor, LookDownPressed,
+            () => lookDownHeld = true, () => lookDownHeld = false);
 
-        CreateHoldButton(canvasGo.transform, "RunButton", "RUN",
-            new Vector2(90 + (buttonSize + gap) * 2, 90), new Vector2(buttonSize, buttonSize),
-            () => runHeld = true, () => runHeld = false);
+        // Cluster derecho: movimiento tipo gamepad (◀ ▶ juntos) + correr arriba
+        CreateCircleButton(canvasGo.transform, "RightButton", "▶",
+            new Vector2(-90, 90), buttonSize, MoveColor, MovePressed,
+            () => rightHeld = true, () => rightHeld = false, anchorRight: true);
 
-        CreateJumpButton(canvasGo.transform);
+        CreateCircleButton(canvasGo.transform, "LeftButton", "◀",
+            new Vector2(-90 - buttonSize - gap, 90), buttonSize, MoveColor, MovePressed,
+            () => leftHeld = true, () => leftHeld = false, anchorRight: true);
+
+        CreateCircleButton(canvasGo.transform, "RunButton", "RUN",
+            new Vector2(-90 - (buttonSize + gap) / 2f, 90 + buttonSize + gap), buttonSize, RunColor, RunPressed,
+            () => runHeld = true, () => runHeld = false, anchorRight: true);
     }
 
-    void CreateJumpButton(Transform parent)
-    {
-        GameObject go = new GameObject("JumpButton");
-        go.transform.SetParent(parent, false);
-
-        RectTransform rect = go.AddComponent<RectTransform>();
-        rect.anchorMin = new Vector2(1f, 0f);
-        rect.anchorMax = new Vector2(1f, 0f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.sizeDelta = new Vector2(jumpButtonSize, jumpButtonSize);
-        rect.anchoredPosition = new Vector2(-110, 100);
-
-        Image image = go.AddComponent<Image>();
-        image.color = Normal;
-        CreateLabel(go.transform, "SALTO", jumpButtonSize);
-
-        EventTrigger trigger = go.AddComponent<EventTrigger>();
-        AddTriggerEntry(trigger, EventTriggerType.PointerDown, () =>
-        {
-            image.color = Pressed;
-            if (player != null)
-                player.TryJump();
-        });
-        AddTriggerEntry(trigger, EventTriggerType.PointerUp, () =>
-        {
-            image.color = Normal;
-            if (player != null)
-                player.TryJumpRelease();
-        });
-        AddTriggerEntry(trigger, EventTriggerType.PointerExit, () =>
-        {
-            image.color = Normal;
-            if (player != null)
-                player.TryJumpRelease();
-        });
-    }
-
-    void CreateHoldButton(Transform parent, string name, string label, Vector2 pos, Vector2 size,
-        System.Action onDown, System.Action onUp)
+    void CreateCircleButton(Transform parent, string name, string label, Vector2 pos, float size,
+        Color baseColor, Color pressedColor, System.Action onDown, System.Action onUp, bool anchorRight = false)
     {
         GameObject go = new GameObject(name);
         go.transform.SetParent(parent, false);
 
         RectTransform rect = go.AddComponent<RectTransform>();
-        rect.anchorMin = Vector2.zero;
-        rect.anchorMax = Vector2.zero;
+        Vector2 anchor = anchorRight ? new Vector2(1f, 0f) : Vector2.zero;
+        rect.anchorMin = anchor;
+        rect.anchorMax = anchor;
         rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.sizeDelta = size;
+        rect.sizeDelta = new Vector2(size, size);
         rect.anchoredPosition = pos;
 
-        Image image = go.AddComponent<Image>();
-        image.color = Normal;
-        CreateLabel(go.transform, label, size.y);
+        // Sombra (da sensacion de boton elevado)
+        GameObject shadowGo = new GameObject("Shadow");
+        shadowGo.transform.SetParent(go.transform, false);
+        RectTransform shadowRect = shadowGo.AddComponent<RectTransform>();
+        shadowRect.anchorMin = Vector2.zero;
+        shadowRect.anchorMax = Vector2.one;
+        shadowRect.offsetMin = Vector2.zero;
+        shadowRect.offsetMax = Vector2.zero;
+        shadowRect.anchoredPosition = ShadowOffset;
+        Image shadowImage = shadowGo.AddComponent<Image>();
+        shadowImage.sprite = PlaceholderSprite.Circle();
+        shadowImage.color = ShadowColor;
+
+        // Cuerpo del boton
+        GameObject bodyGo = new GameObject("Body");
+        bodyGo.transform.SetParent(go.transform, false);
+        RectTransform bodyRect = bodyGo.AddComponent<RectTransform>();
+        bodyRect.anchorMin = Vector2.zero;
+        bodyRect.anchorMax = Vector2.one;
+        bodyRect.offsetMin = Vector2.zero;
+        bodyRect.offsetMax = Vector2.zero;
+        Image bodyImage = bodyGo.AddComponent<Image>();
+        bodyImage.sprite = PlaceholderSprite.Circle();
+        bodyImage.color = baseColor;
+
+        // Borde/anillo
+        GameObject ringGo = new GameObject("Ring");
+        ringGo.transform.SetParent(go.transform, false);
+        RectTransform ringRect = ringGo.AddComponent<RectTransform>();
+        ringRect.anchorMin = Vector2.zero;
+        ringRect.anchorMax = Vector2.one;
+        ringRect.offsetMin = Vector2.zero;
+        ringRect.offsetMax = Vector2.zero;
+        Image ringImage = ringGo.AddComponent<Image>();
+        ringImage.sprite = PlaceholderSprite.Ring();
+        ringImage.color = RingColor;
+        ringImage.raycastTarget = false;
+
+        CreateLabel(go.transform, label, size);
 
         EventTrigger trigger = go.AddComponent<EventTrigger>();
         AddTriggerEntry(trigger, EventTriggerType.PointerDown, () =>
         {
-            image.color = Pressed;
+            bodyImage.color = pressedColor;
             onDown();
         });
         AddTriggerEntry(trigger, EventTriggerType.PointerUp, () =>
         {
-            image.color = Normal;
+            bodyImage.color = baseColor;
             onUp();
         });
         AddTriggerEntry(trigger, EventTriggerType.PointerExit, () =>
         {
-            image.color = Normal;
+            bodyImage.color = baseColor;
             onUp();
         });
     }
@@ -171,10 +196,15 @@ public class TouchControls : MonoBehaviour
         Text text = go.AddComponent<Text>();
         text.text = content;
         text.font = font;
-        text.fontSize = Mathf.RoundToInt(refSize * 0.3f);
+        text.fontSize = Mathf.RoundToInt(refSize * (content.Length > 2 ? 0.24f : 0.4f));
         text.fontStyle = FontStyle.Bold;
         text.alignment = TextAnchor.MiddleCenter;
         text.color = Color.white;
+        text.raycastTarget = false;
+
+        Shadow shadow = go.AddComponent<Shadow>();
+        shadow.effectColor = new Color(0f, 0f, 0f, 0.6f);
+        shadow.effectDistance = new Vector2(1.5f, -1.5f);
     }
 
     void AddTriggerEntry(EventTrigger trigger, EventTriggerType type, UnityEngine.Events.UnityAction action)
