@@ -35,6 +35,10 @@ public class PlayerSpawner : MonoBehaviour
         GameObject player = Instantiate(prefab, transform.position, Quaternion.identity);
         player.name = prefab.name;
 
+        SpriteRenderer sr = player.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.sortingLayerName = SortingLayers.Player;
+
         CameraFollow cameraFollow = FindAnyObjectByType<CameraFollow>();
         if (cameraFollow != null)
             cameraFollow.target = player.transform;

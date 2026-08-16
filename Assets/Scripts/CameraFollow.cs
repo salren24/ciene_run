@@ -26,10 +26,24 @@ public class CameraFollow : MonoBehaviour
     public float maxManualLookDown = 5f;
     public float manualLookDownSmoothSpeed = 6f;
 
+    [Header("Encuadre segun aspect ratio (celular vs. editor)")]
+    public float targetViewWidth = 24f;
+    public float minOrthoSize = 5f;
+    public float maxOrthoSize = 9f;
+
+    Camera cam;
     Rigidbody2D targetRb;
     PlayerController targetController;
     float fallLookAheadCurrent;
     float manualLookDownCurrent;
+    int lastScreenWidth;
+    int lastScreenHeight;
+
+    void Awake()
+    {
+        cam = GetComponent<Camera>();
+        ApplyAspectFraming();
+    }
 
     void Start()
     {
@@ -56,6 +70,9 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if (Screen.width != lastScreenWidth || Screen.height != lastScreenHeight)
+            ApplyAspectFraming();
+
         if (target == null)
             return;
 
@@ -80,5 +97,20 @@ public class CameraFollow : MonoBehaviour
         }
 
         transform.position = Vector3.Lerp(transform.position, desired, smoothSpeed * Time.deltaTime);
+    }
+
+    void ApplyAspectFraming()
+    {
+        lastScreenWidth = Screen.width;
+        lastScreenHeight = Screen.height;
+
+        if (cam == null)
+            cam = GetComponent<Camera>();
+        if (cam == null || lastScreenHeight <= 0)
+            return;
+
+        float aspect = (float)lastScreenWidth / lastScreenHeight;
+        float desiredOrthoSize = targetViewWidth / aspect / 2f;
+        cam.orthographicSize = Mathf.Clamp(desiredOrthoSize, minOrthoSize, maxOrthoSize);
     }
 }

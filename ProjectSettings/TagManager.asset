@@ -41,3 +41,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 1
+    locked: 0
+  - name: FarBackground
+    uniqueID: 2
+    locked: 0
+  - name: NearBackground
+    uniqueID: 3
+    locked: 0
+  - name: Terrain
+    uniqueID: 4
+    locked: 0
+  - name: Objects
+    uniqueID: 5
+    locked: 0
+  - name: Player
+    uniqueID: 6
+    locked: 0
+  - name: Foreground
+    uniqueID: 7
+    locked: 0
+  - name: VFX
+    uniqueID: 8
+    locked: 0
+  - name: UI
+    uniqueID: 9
+    locked: 0

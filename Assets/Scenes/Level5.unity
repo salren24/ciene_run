@@ -288,6 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
+  - component: {fileID: 619394803}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -319,7 +320,17 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -356,6 +367,18 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &619394803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619394800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92de446f13684cd4b9c961f5569f55e0, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -462,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f6b8c0315e7a9b2d3f5a7c9e1b2468, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  skyPalette: {fileID: 11400000, guid: f905148c94f44ecfb8056fe29da1ae99, type: 2}
   coinPrefab: {fileID: 100001, guid: e7b4bc587b0140218bfe35a5c61af2bf, type: 3}
   enemyPrefab: {fileID: 0}
   obstaclePrefab: {fileID: 0}

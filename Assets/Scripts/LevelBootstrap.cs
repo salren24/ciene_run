@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LevelBootstrap : MonoBehaviour
 {
+    [Header("Cielo (opcional; si es null se mantiene el color solido actual de la camara)")]
+    public SkyPalette skyPalette;
+
     [Header("Prefabs opcionales")]
     public GameObject coinPrefab;
     public GameObject enemyPrefab;
@@ -54,20 +58,34 @@ public class LevelBootstrap : MonoBehaviour
     public float deathWidth = 120f;
     public float deathCenterX = 20f;
 
+    // Todas las capas de parallax de aca abajo hacen loop horizontal infinito: se instancia
+    // un pool chico y fijo de copias (los campos "...Count" pasaron a significar "cuantas
+    // copias tiene el pool", no "cuantas hay en todo el nivel") espaciadas "...TileWidth"/
+    // "...Spacing" entre si, y ParallaxLayer las envuelve alrededor de la camara.
     [Header("Fondo parallax (opcional)")]
     public float parallaxStartX = -10f;
-    public float parallaxEndMargin = 10f;
+
+    [Header("Parallax - cerros lejanos (silueta con ruido Perlin si no hay sprite)")]
+    public Sprite[] hillsSprites;
+    public int hillsCount = 3;
+    public float hillsTileWidth = 34f;
+    public float hillsParallaxFactorX = 0.05f;
+    public float hillsY = -1f;
+    public float hillsScale = 1f;
 
     [Header("Parallax - horizonte lejano (ej. goalBeforeSprite)")]
     public Sprite[] skylineSprites;
     public int skylineCount = 3;
+    public float skylineTileWidth = 30f;
     public float skylineParallaxFactor = 0.1f;
     public Vector2 skylineScaleRange = new Vector2(0.9f, 1.1f);
     public float skylineY = 3f;
+    [Range(0f, 1f)] public float skylineFogTintIntensity = 0.35f;
 
     [Header("Parallax - fondo cercano (ej. fondo.png)")]
     public Sprite[] backdropSprites;
     public int backdropCount = 6;
+    public float backdropTileWidth = 14f;
     public float backdropParallaxFactor = 0.4f;
     public Vector2 backdropScaleRange = new Vector2(0.95f, 1.05f);
     public float backdropY = -1f;
@@ -75,14 +93,18 @@ public class LevelBootstrap : MonoBehaviour
     [Header("Parallax - nubes")]
     public Sprite[] cloudSprites;
     public int farCloudCount = 2;
+    public float farCloudSpacing = 16f;
     public float farParallaxFactor = 0.15f;
     public Vector2 farCloudScaleRange = new Vector2(1.6f, 2.2f);
     public float farCloudY = 6f;
+    public float farCloudAutoScrollSpeed = 0.3f;
 
     public int nearCloudCount = 3;
+    public float nearCloudSpacing = 11f;
     public float nearParallaxFactor = 0.35f;
     public Vector2 nearCloudScaleRange = new Vector2(0.7f, 1.1f);
     public float nearCloudY = 4f;
+    public float nearCloudAutoScrollSpeed = 0.6f;
 
     [Header("Fondo estatico unico (una sola instancia, sin loop, sin parallax)")]
     public Sprite staticBackdropSprite;
@@ -157,6 +179,8 @@ public class LevelBootstrap : MonoBehaviour
             controls.AddComponent<TouchControls>();
         }
 
+        AssignTerrainSortingLayer();
+        ApplySkyPalette();
         SpawnParallaxBackground();
         SpawnStaticBackdrop();
         SpawnCoins();
@@ -173,6 +197,36 @@ public class LevelBootstrap : MonoBehaviour
         SpawnCheckpoint();
     }
 
+    // Si no hay paleta asignada, no se toca nada: la camara se queda con su color solido
+    // configurado en la escena (comportamiento actual, para no romper escenas sin configurar).
+    void ApplySkyPalette()
+    {
+        if (skyPalette == null)
+            return;
+
+        Camera cam = Camera.main;
+        if (cam == null)
+            cam = FindAnyObjectByType<Camera>();
+        if (cam == null)
+            return;
+
+        cam.backgroundColor = skyPalette.cameraBaseColor;
+
+        GameObject skyGo = new GameObject("SkyGradient");
+        skyGo.transform.SetParent(cam.transform, false);
+        SkyGradient sky = skyGo.AddComponent<SkyGradient>();
+        sky.Initialize(cam, skyPalette);
+    }
+
+    // El Tilemap de suelo ya existe en la escena (no lo instancia LevelBootstrap), pero
+    // se centraliza aca la asignacion de su sorting layer junto con el resto del nivel.
+    void AssignTerrainSortingLayer()
+    {
+        TilemapRenderer tilemapRenderer = FindAnyObjectByType<TilemapRenderer>();
+        if (tilemapRenderer != null)
+            tilemapRenderer.sortingLayerName = SortingLayers.Terrain;
+    }
+
     void SpawnStaticBackdrop()
     {
         if (staticBackdropSprite == null)
@@ -183,6 +237,7 @@ public class LevelBootstrap : MonoBehaviour
 
         SpriteRenderer sr = backdrop.AddComponent<SpriteRenderer>();
         sr.sprite = staticBackdropSprite;
+        sr.sortingLayerName = SortingLayers.FarBackground;
         sr.sortingOrder = -12;
 
         float nativeHeight = staticBackdropSprite.rect.height / staticBackdropSprite.pixelsPerUnit;
@@ -208,7 +263,11 @@ public class LevelBootstrap : MonoBehaviour
 
             SpriteRenderer prefabSr = coin.GetComponent<SpriteRenderer>();
             if (prefabSr != null)
+            {
                 prefabSr.color = new Color(1f, 0.95f, 0.6f, 1f);
+                prefabSr.sortingLayerName = SortingLayers.Objects;
+                prefabSr.sortingOrder = SortingLayers.Order.FinalCoin;
+            }
         }
         else
         {
@@ -219,7 +278,8 @@ public class LevelBootstrap : MonoBehaviour
             SpriteRenderer sr = coin.AddComponent<SpriteRenderer>();
             sr.sprite = art != null ? art : PlaceholderSprite.Square();
             sr.color = art != null ? Color.white : new Color(1f, 0.85f, 0.15f, 1f);
-            sr.sortingOrder = 6;
+            sr.sortingLayerName = SortingLayers.Objects;
+            sr.sortingOrder = SortingLayers.Order.FinalCoin;
 
             CircleCollider2D col = coin.AddComponent<CircleCollider2D>();
             col.isTrigger = true;
@@ -252,6 +312,13 @@ public class LevelBootstrap : MonoBehaviour
                 Obstacle staticBehaviour = obstacle.GetComponent<Obstacle>();
                 if (staticBehaviour != null)
                     Destroy(staticBehaviour);
+
+                SpriteRenderer prefabSr = obstacle.GetComponent<SpriteRenderer>();
+                if (prefabSr != null)
+                {
+                    prefabSr.sortingLayerName = SortingLayers.Objects;
+                    prefabSr.sortingOrder = SortingLayers.Order.MovingObstacle;
+                }
             }
             else
             {
@@ -262,7 +329,8 @@ public class LevelBootstrap : MonoBehaviour
                 bool hasObstacleArt = obstacleSprite != null;
                 sr.sprite = hasObstacleArt ? obstacleSprite : PlaceholderSprite.Square();
                 sr.color = hasObstacleArt ? Color.white : new Color(0.75f, 0.15f, 0.15f, 1f);
-                sr.sortingOrder = 5;
+                sr.sortingLayerName = SortingLayers.Objects;
+                sr.sortingOrder = SortingLayers.Order.MovingObstacle;
                 obstacle.transform.localScale = new Vector3(0.9f, 0.9f, 1f);
 
                 obstacle.AddComponent<BoxCollider2D>();
@@ -297,7 +365,8 @@ public class LevelBootstrap : MonoBehaviour
             SpriteRenderer sr = platform.AddComponent<SpriteRenderer>();
             sr.sprite = PlaceholderSprite.Square();
             sr.color = new Color(0.62f, 0.4f, 0.18f, 1f);
-            sr.sortingOrder = 4;
+            sr.sortingLayerName = SortingLayers.Objects;
+            sr.sortingOrder = SortingLayers.Order.Elevator;
             platform.transform.localScale = new Vector3(width, 0.5f, 1f);
 
             BoxCollider2D col = platform.AddComponent<BoxCollider2D>();
@@ -325,28 +394,71 @@ public class LevelBootstrap : MonoBehaviour
 
     void SpawnParallaxBackground()
     {
+        SpawnHills();
+
         // fitWidthMultiplier>0 hace que cada copia se escale para cubrir (con leve solape) el
         // espacio entre copias, dando una capa continua - usado para horizonte/fondo, no para nubes.
-        SpawnScrollingLayer(skylineSprites, skylineCount, skylineParallaxFactor, skylineScaleRange, skylineY, -15, "Skyline", 1.15f);
-        SpawnScrollingLayer(backdropSprites, backdropCount, backdropParallaxFactor, backdropScaleRange, backdropY, -13, "Backdrop", 1.1f, alternateFlip: true);
-        SpawnScrollingLayer(cloudSprites, farCloudCount, farParallaxFactor, farCloudScaleRange, farCloudY, -10, "CloudFar");
-        SpawnScrollingLayer(cloudSprites, nearCloudCount, nearParallaxFactor, nearCloudScaleRange, nearCloudY, -9, "CloudNear");
+        SpawnScrollingLayer(skylineSprites, skylineCount, skylineTileWidth, skylineParallaxFactor, skylineScaleRange, skylineY,
+            -15, "Skyline", SortingLayers.FarBackground, fitWidthMultiplier: 1.15f, fogTintIntensity: skylineFogTintIntensity);
+        SpawnScrollingLayer(backdropSprites, backdropCount, backdropTileWidth, backdropParallaxFactor, backdropScaleRange, backdropY,
+            -13, "Backdrop", SortingLayers.FarBackground, fitWidthMultiplier: 1.1f, alternateFlip: true);
+        SpawnScrollingLayer(cloudSprites, farCloudCount, farCloudSpacing, farParallaxFactor, farCloudScaleRange, farCloudY,
+            -10, "CloudFar", SortingLayers.FarBackground, autoScroll: true, autoScrollSpeed: farCloudAutoScrollSpeed);
+        SpawnScrollingLayer(cloudSprites, nearCloudCount, nearCloudSpacing, nearParallaxFactor, nearCloudScaleRange, nearCloudY,
+            -9, "CloudNear", SortingLayers.NearBackground, autoScroll: true, autoScrollSpeed: nearCloudAutoScrollSpeed);
     }
 
-    void SpawnScrollingLayer(Sprite[] sprites, int count, float parallaxFactor, Vector2 scaleRange, float y,
-        int sortingOrder, string label, float fitWidthMultiplier = 0f, bool alternateFlip = false)
+    // Cerros lejanos: usa hillsSprites si hay arte asignado; si no, genera una silueta con
+    // ruido Perlin (blanca, se tine con el fogColor de la paleta - eso es lo que la hace
+    // verse "atmosferica" en vez de un cuadrado blanco).
+    void SpawnHills()
+    {
+        if (hillsCount <= 0)
+            return;
+
+        bool usingProcedural = hillsSprites == null || hillsSprites.Length == 0;
+        Sprite proceduralSprite = usingProcedural ? PlaceholderSprite.PerlinHills() : null;
+        Color tint = skyPalette != null ? skyPalette.fogColor : Color.white;
+        float loopWidth = hillsTileWidth * hillsCount;
+
+        for (int i = 0; i < hillsCount; i++)
+        {
+            Sprite sprite = usingProcedural ? proceduralSprite : hillsSprites[i % hillsSprites.Length];
+            float x = parallaxStartX + i * hillsTileWidth;
+
+            GameObject layer = new GameObject("Hills_" + i);
+            layer.transform.position = new Vector3(x, hillsY, 0f);
+
+            SpriteRenderer sr = layer.AddComponent<SpriteRenderer>();
+            sr.sprite = sprite;
+            sr.color = tint;
+            sr.sortingLayerName = SortingLayers.FarBackground;
+            sr.sortingOrder = -16;
+
+            float nativeWidth = sprite.rect.width / sprite.pixelsPerUnit;
+            float scaleX = nativeWidth > 0f ? (hillsTileWidth * 1.1f) / nativeWidth : 1f;
+            layer.transform.localScale = new Vector3(scaleX, hillsScale, 1f);
+
+            ParallaxLayer parallax = layer.AddComponent<ParallaxLayer>();
+            parallax.parallaxFactorX = hillsParallaxFactorX;
+            parallax.parallaxFactorY = hillsParallaxFactorX * 0.5f;
+            parallax.loopWidth = loopWidth;
+        }
+    }
+
+    void SpawnScrollingLayer(Sprite[] sprites, int count, float tileWidth, float parallaxFactorX, Vector2 scaleRange, float y,
+        int sortingOrder, string label, string sortingLayerName, float fitWidthMultiplier = 0f, bool alternateFlip = false,
+        bool autoScroll = false, float autoScrollSpeed = 0f, float fogTintIntensity = 0f)
     {
         if (sprites == null || sprites.Length == 0 || count <= 0)
             return;
 
-        float spanStart = parallaxStartX;
-        float spanEnd = goalX + parallaxEndMargin;
-        float step = count > 1 ? (spanEnd - spanStart) / (count - 1) : spanEnd - spanStart;
+        float loopWidth = tileWidth * count;
 
         for (int i = 0; i < count; i++)
         {
             Sprite sprite = sprites[i % sprites.Length];
-            float x = spanStart + i * step;
+            float x = parallaxStartX + i * tileWidth;
             float variance = Random.Range(scaleRange.x, scaleRange.y);
 
             GameObject layer = new GameObject(label + "_" + i);
@@ -354,13 +466,16 @@ public class LevelBootstrap : MonoBehaviour
 
             SpriteRenderer sr = layer.AddComponent<SpriteRenderer>();
             sr.sprite = sprite;
+            sr.sortingLayerName = sortingLayerName;
             sr.sortingOrder = sortingOrder;
+            if (fogTintIntensity > 0f && skyPalette != null)
+                sr.color = Color.Lerp(Color.white, skyPalette.fogColor, fogTintIntensity);
 
             float scale;
             if (fitWidthMultiplier > 0f)
             {
                 float nativeWidth = sprite.rect.width / sprite.pixelsPerUnit;
-                float targetWidth = step * fitWidthMultiplier;
+                float targetWidth = tileWidth * fitWidthMultiplier;
                 scale = (nativeWidth > 0f ? targetWidth / nativeWidth : 1f) * variance;
             }
             else
@@ -372,7 +487,11 @@ public class LevelBootstrap : MonoBehaviour
             layer.transform.localScale = new Vector3(scale * flipX, scale, 1f);
 
             ParallaxLayer parallax = layer.AddComponent<ParallaxLayer>();
-            parallax.parallaxFactor = parallaxFactor;
+            parallax.parallaxFactorX = parallaxFactorX;
+            parallax.parallaxFactorY = parallaxFactorX * 0.5f;
+            parallax.loopWidth = loopWidth;
+            parallax.autoScroll = autoScroll;
+            parallax.autoScrollSpeed = autoScrollSpeed;
         }
     }
 
@@ -391,6 +510,13 @@ public class LevelBootstrap : MonoBehaviour
             if (coinPrefab != null)
             {
                 coin = Instantiate(coinPrefab, pos, Quaternion.identity);
+
+                SpriteRenderer prefabSr = coin.GetComponent<SpriteRenderer>();
+                if (prefabSr != null)
+                {
+                    prefabSr.sortingLayerName = SortingLayers.Objects;
+                    prefabSr.sortingOrder = SortingLayers.Order.Coin;
+                }
             }
             else
             {
@@ -401,7 +527,8 @@ public class LevelBootstrap : MonoBehaviour
                 bool hasCoinArt = coinSprite != null;
                 sr.sprite = hasCoinArt ? coinSprite : PlaceholderSprite.Square();
                 sr.color = hasCoinArt ? Color.white : new Color(1f, 0.85f, 0.15f, 1f);
-                sr.sortingOrder = 5;
+                sr.sortingLayerName = SortingLayers.Objects;
+                sr.sortingOrder = SortingLayers.Order.Coin;
 
                 CircleCollider2D col = coin.AddComponent<CircleCollider2D>();
                 col.isTrigger = true;
@@ -433,7 +560,11 @@ public class LevelBootstrap : MonoBehaviour
 
                 SpriteRenderer prefabSr = coin.GetComponent<SpriteRenderer>();
                 if (prefabSr != null)
+                {
                     prefabSr.color = SpecialCoinTint;
+                    prefabSr.sortingLayerName = SortingLayers.Objects;
+                    prefabSr.sortingOrder = SortingLayers.Order.SpecialCoin;
+                }
             }
             else
             {
@@ -445,7 +576,8 @@ public class LevelBootstrap : MonoBehaviour
                 bool hasCoinArt = coinSprite != null;
                 sr.sprite = hasCoinArt ? coinSprite : PlaceholderSprite.Square();
                 sr.color = SpecialCoinTint;
-                sr.sortingOrder = 5;
+                sr.sortingLayerName = SortingLayers.Objects;
+                sr.sortingOrder = SortingLayers.Order.SpecialCoin;
 
                 CircleCollider2D col = coin.AddComponent<CircleCollider2D>();
                 col.isTrigger = true;
@@ -460,7 +592,8 @@ public class LevelBootstrap : MonoBehaviour
             SpriteRenderer haloSr = halo.AddComponent<SpriteRenderer>();
             haloSr.sprite = PlaceholderSprite.Circle();
             haloSr.color = new Color(SpecialCoinTint.r, SpecialCoinTint.g, SpecialCoinTint.b, 0.35f);
-            haloSr.sortingOrder = 3;
+            haloSr.sortingLayerName = SortingLayers.Objects;
+            haloSr.sortingOrder = SortingLayers.Order.SpecialCoinHalo;
 
             coin.name = "SpecialCoin_" + i;
             CoinPickup pickup = coin.GetComponent<CoinPickup>();
@@ -492,7 +625,8 @@ public class LevelBootstrap : MonoBehaviour
             SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
             sr.sprite = PlaceholderSprite.Circle();
             sr.color = PowerUpColorFor(config.type);
-            sr.sortingOrder = 5;
+            sr.sortingLayerName = SortingLayers.Objects;
+            sr.sortingOrder = SortingLayers.Order.PowerUp;
 
             GameObject halo = new GameObject("Halo");
             halo.transform.SetParent(go.transform, false);
@@ -500,7 +634,8 @@ public class LevelBootstrap : MonoBehaviour
             SpriteRenderer haloSr = halo.AddComponent<SpriteRenderer>();
             haloSr.sprite = PlaceholderSprite.Ring();
             haloSr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.6f);
-            haloSr.sortingOrder = 4;
+            haloSr.sortingLayerName = SortingLayers.Objects;
+            haloSr.sortingOrder = SortingLayers.Order.PowerUpHalo;
 
             CircleCollider2D col = go.AddComponent<CircleCollider2D>();
             col.isTrigger = true;
@@ -533,6 +668,13 @@ public class LevelBootstrap : MonoBehaviour
             if (enemyPrefab != null)
             {
                 enemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
+
+                SpriteRenderer prefabSr = enemy.GetComponent<SpriteRenderer>();
+                if (prefabSr != null)
+                {
+                    prefabSr.sortingLayerName = SortingLayers.Objects;
+                    prefabSr.sortingOrder = SortingLayers.Order.Enemy;
+                }
             }
             else
             {
@@ -543,7 +685,8 @@ public class LevelBootstrap : MonoBehaviour
                 bool hasEnemyArt = enemySprite != null;
                 sr.sprite = hasEnemyArt ? enemySprite : PlaceholderSprite.Square();
                 sr.color = hasEnemyArt ? Color.white : new Color(0.55f, 0.2f, 0.75f, 1f);
-                sr.sortingOrder = 5;
+                sr.sortingLayerName = SortingLayers.Objects;
+                sr.sortingOrder = SortingLayers.Order.Enemy;
                 enemy.transform.localScale = new Vector3(2.86f, 2.86f, 1f);
 
                 Rigidbody2D rb = enemy.AddComponent<Rigidbody2D>();
@@ -571,6 +714,13 @@ public class LevelBootstrap : MonoBehaviour
             if (obstaclePrefab != null)
             {
                 obstacle = Instantiate(obstaclePrefab, pos, Quaternion.identity);
+
+                SpriteRenderer prefabSr = obstacle.GetComponent<SpriteRenderer>();
+                if (prefabSr != null)
+                {
+                    prefabSr.sortingLayerName = SortingLayers.Objects;
+                    prefabSr.sortingOrder = SortingLayers.Order.Obstacle;
+                }
             }
             else
             {
@@ -581,7 +731,8 @@ public class LevelBootstrap : MonoBehaviour
                 bool hasObstacleArt = obstacleSprite != null;
                 sr.sprite = hasObstacleArt ? obstacleSprite : PlaceholderSprite.Square();
                 sr.color = hasObstacleArt ? Color.white : new Color(0.75f, 0.15f, 0.15f, 1f);
-                sr.sortingOrder = 5;
+                sr.sortingLayerName = SortingLayers.Objects;
+                sr.sortingOrder = SortingLayers.Order.Obstacle;
                 obstacle.transform.localScale = new Vector3(0.9f, 0.9f, 1f);
 
                 obstacle.AddComponent<BoxCollider2D>();
@@ -614,11 +765,11 @@ public class LevelBootstrap : MonoBehaviour
 
     void BuildGoalVisual(Transform parent)
     {
-        CreateGoalPart(parent, "Base", new Vector3(0f, 0.1f, 0f), new Vector2(0.7f, 0.2f), new Color(0.35f, 0.35f, 0.38f), 5);
-        CreateGoalPart(parent, "Pole", new Vector3(0f, 1.8f, 0f), new Vector2(0.14f, 3.4f), new Color(0.42f, 0.3f, 0.2f), 5);
-        CreateGoalPart(parent, "Banner", new Vector3(0.4f, 3.0f, 0f), new Vector2(1.1f, 0.7f), new Color(0.18f, 0.75f, 0.35f), 6);
-        CreateGoalPart(parent, "BannerAccent", new Vector3(0.4f, 3.0f, 0f), new Vector2(0.7f, 0.35f), Color.white, 7);
-        CreateGoalPart(parent, "Finial", new Vector3(0f, 3.55f, 0f), new Vector2(0.28f, 0.28f), new Color(1f, 0.85f, 0.2f), 5);
+        CreateGoalPart(parent, "Base", new Vector3(0f, 0.1f, 0f), new Vector2(0.7f, 0.2f), new Color(0.35f, 0.35f, 0.38f), SortingLayers.Order.GoalBase);
+        CreateGoalPart(parent, "Pole", new Vector3(0f, 1.8f, 0f), new Vector2(0.14f, 3.4f), new Color(0.42f, 0.3f, 0.2f), SortingLayers.Order.GoalPole);
+        CreateGoalPart(parent, "Banner", new Vector3(0.4f, 3.0f, 0f), new Vector2(1.1f, 0.7f), new Color(0.18f, 0.75f, 0.35f), SortingLayers.Order.GoalBanner);
+        CreateGoalPart(parent, "BannerAccent", new Vector3(0.4f, 3.0f, 0f), new Vector2(0.7f, 0.35f), Color.white, SortingLayers.Order.GoalBannerAccent);
+        CreateGoalPart(parent, "Finial", new Vector3(0f, 3.55f, 0f), new Vector2(0.28f, 0.28f), new Color(1f, 0.85f, 0.2f), SortingLayers.Order.GoalFinial);
     }
 
     void CreateGoalPart(Transform parent, string name, Vector3 localPos, Vector2 size, Color color, int sortingOrder)
@@ -631,6 +782,7 @@ public class LevelBootstrap : MonoBehaviour
         SpriteRenderer sr = part.AddComponent<SpriteRenderer>();
         sr.sprite = PlaceholderSprite.Square();
         sr.color = color;
+        sr.sortingLayerName = SortingLayers.Objects;
         sr.sortingOrder = sortingOrder;
     }
 

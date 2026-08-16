@@ -42,7 +42,8 @@ public class ChargeEnemySpawner : MonoBehaviour
         enemy.transform.position = new Vector3(x, spawnY, 0f);
 
         SpriteRenderer sr = enemy.AddComponent<SpriteRenderer>();
-        sr.sortingOrder = 5;
+        sr.sortingLayerName = SortingLayers.Objects;
+        sr.sortingOrder = SortingLayers.Order.ChargeEnemy;
 
         if (chargeFrames != null && chargeFrames.Length > 0 && chargeFrames[0] != null)
         {

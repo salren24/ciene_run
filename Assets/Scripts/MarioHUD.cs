@@ -108,10 +108,14 @@ public class MarioHUD : MonoBehaviour
         CreateText(bar.transform, "LivesTitle", "LIVES", new Vector2(520, 18), new Vector2(120, 28), 20, Color.white);
         livesLabel = CreateText(bar.transform, "LivesValue", "x3", new Vector2(520, -14), new Vector2(120, 32), 26, Gold);
 
-        CreateText(canvasGo.transform, "ControlsHint",
+        Text controlsHint = CreateText(canvasGo.transform, "ControlsHint",
             "← → Mover   |   Shift Correr   |   Espacio Saltar   |   ↓ Mirar abajo   |   Esc / P Pausa",
             new Vector2(0, 26), new Vector2(1000, 28), 15, new Color(1f, 1f, 1f, 0.7f),
             new Vector2(0.5f, 0f), new Vector2(0.5f, 0f));
+        // En mobile los controles son los botones tactiles, no el teclado - este texto solo
+        // aplica en desktop, y sobre el area de juego es lo que mas delata un build de prueba.
+        if (Application.isMobilePlatform)
+            controlsHint.gameObject.SetActive(false);
 
         powerUpStatusLabel = CreateText(canvasGo.transform, "PowerUpStatus", "",
             new Vector2(0, -98), new Vector2(900, 30), 18, PowerUpText,
