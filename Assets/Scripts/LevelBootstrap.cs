@@ -13,6 +13,7 @@ public class LevelBootstrap : MonoBehaviour
 
     [Header("Sprites tematicos (opcional, si no hay prefab)")]
     public Sprite coinSprite;
+    public Sprite specialCoinSprite;
     public Sprite enemySprite;
     public Sprite obstacleSprite;
     public Sprite goalBeforeSprite;
@@ -146,9 +147,9 @@ public class LevelBootstrap : MonoBehaviour
     [Header("Ascensores / plataformas verticales moviles (opcional)")]
     public ElevatorConfig[] elevators = new ElevatorConfig[0];
 
-    [Header("Enemigo de embestida (aparece por tiempo, no por posicion fija)")]
+    [Header("Enemigo de embestida (aparece al cruzar una X fija del nivel, una vez por entrada)")]
     public Sprite[] chargeEnemyFrames;
-    public float[] chargeEnemySpawnTimes = new float[] { 60f, 240f };
+    public float[] chargeEnemySpawnX = new float[] { 60f, 240f };
     public float chargeEnemySpawnAhead = 11f;
     public float chargeEnemySpawnY;
 
@@ -387,7 +388,7 @@ public class LevelBootstrap : MonoBehaviour
         GameObject spawnerGo = new GameObject("ChargeEnemySpawner");
         ChargeEnemySpawner spawner = spawnerGo.AddComponent<ChargeEnemySpawner>();
         spawner.chargeFrames = chargeEnemyFrames;
-        spawner.spawnTimes = chargeEnemySpawnTimes;
+        spawner.spawnX = chargeEnemySpawnX;
         spawner.spawnAheadDistance = chargeEnemySpawnAhead;
         spawner.spawnY = chargeEnemySpawnY;
     }
@@ -403,9 +404,9 @@ public class LevelBootstrap : MonoBehaviour
         SpawnScrollingLayer(backdropSprites, backdropCount, backdropTileWidth, backdropParallaxFactor, backdropScaleRange, backdropY,
             -13, "Backdrop", SortingLayers.FarBackground, fitWidthMultiplier: 1.1f, alternateFlip: true);
         SpawnScrollingLayer(cloudSprites, farCloudCount, farCloudSpacing, farParallaxFactor, farCloudScaleRange, farCloudY,
-            -10, "CloudFar", SortingLayers.FarBackground, autoScroll: true, autoScrollSpeed: farCloudAutoScrollSpeed);
+            -10, "CloudFar", SortingLayers.FarBackground, autoScroll: true, autoScrollSpeed: farCloudAutoScrollSpeed, alpha: 0.8f);
         SpawnScrollingLayer(cloudSprites, nearCloudCount, nearCloudSpacing, nearParallaxFactor, nearCloudScaleRange, nearCloudY,
-            -9, "CloudNear", SortingLayers.NearBackground, autoScroll: true, autoScrollSpeed: nearCloudAutoScrollSpeed);
+            -9, "CloudNear", SortingLayers.NearBackground, autoScroll: true, autoScrollSpeed: nearCloudAutoScrollSpeed, alpha: 0.8f);
     }
 
     // Cerros lejanos: usa hillsSprites si hay arte asignado; si no, genera una silueta con
@@ -448,7 +449,7 @@ public class LevelBootstrap : MonoBehaviour
 
     void SpawnScrollingLayer(Sprite[] sprites, int count, float tileWidth, float parallaxFactorX, Vector2 scaleRange, float y,
         int sortingOrder, string label, string sortingLayerName, float fitWidthMultiplier = 0f, bool alternateFlip = false,
-        bool autoScroll = false, float autoScrollSpeed = 0f, float fogTintIntensity = 0f)
+        bool autoScroll = false, float autoScrollSpeed = 0f, float fogTintIntensity = 0f, float alpha = 1f)
     {
         if (sprites == null || sprites.Length == 0 || count <= 0)
             return;
@@ -470,6 +471,8 @@ public class LevelBootstrap : MonoBehaviour
             sr.sortingOrder = sortingOrder;
             if (fogTintIntensity > 0f && skyPalette != null)
                 sr.color = Color.Lerp(Color.white, skyPalette.fogColor, fogTintIntensity);
+            if (alpha < 1f)
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
 
             float scale;
             if (fitWidthMultiplier > 0f)
@@ -561,10 +564,24 @@ public class LevelBootstrap : MonoBehaviour
                 SpriteRenderer prefabSr = coin.GetComponent<SpriteRenderer>();
                 if (prefabSr != null)
                 {
-                    prefabSr.color = SpecialCoinTint;
+                    // Con un sprite de gema propio no hace falta tinte: ya tiene su color;
+                    // el tinte solo se usa como fallback cuando se reutiliza la moneda dorada.
+                    if (specialCoinSprite != null)
+                    {
+                        prefabSr.sprite = specialCoinSprite;
+                        prefabSr.color = Color.white;
+                    }
+                    else
+                    {
+                        prefabSr.color = SpecialCoinTint;
+                    }
                     prefabSr.sortingLayerName = SortingLayers.Objects;
                     prefabSr.sortingOrder = SortingLayers.Order.SpecialCoin;
                 }
+
+                Animator prefabAnimator = coin.GetComponent<Animator>();
+                if (prefabAnimator != null && specialCoinSprite != null)
+                    prefabAnimator.enabled = false;
             }
             else
             {
@@ -573,9 +590,8 @@ public class LevelBootstrap : MonoBehaviour
                 coin.transform.localScale = Vector3.one * specialCoinScale;
 
                 SpriteRenderer sr = coin.AddComponent<SpriteRenderer>();
-                bool hasCoinArt = coinSprite != null;
-                sr.sprite = hasCoinArt ? coinSprite : PlaceholderSprite.Square();
-                sr.color = SpecialCoinTint;
+                sr.sprite = specialCoinSprite != null ? specialCoinSprite : (coinSprite != null ? coinSprite : PlaceholderSprite.Square());
+                sr.color = specialCoinSprite != null ? Color.white : SpecialCoinTint;
                 sr.sortingLayerName = SortingLayers.Objects;
                 sr.sortingOrder = SortingLayers.Order.SpecialCoin;
 
@@ -687,14 +703,34 @@ public class LevelBootstrap : MonoBehaviour
                 sr.color = hasEnemyArt ? Color.white : new Color(0.55f, 0.2f, 0.75f, 1f);
                 sr.sortingLayerName = SortingLayers.Objects;
                 sr.sortingOrder = SortingLayers.Order.Enemy;
-                enemy.transform.localScale = new Vector3(2.86f, 2.86f, 1f);
+
+                if (hasEnemyArt)
+                {
+                    const float targetHeight = 0.8f;
+                    float nativeHeight = enemySprite.rect.height / enemySprite.pixelsPerUnit;
+                    float scale = nativeHeight > 0f ? targetHeight / nativeHeight : 1f;
+                    enemy.transform.localScale = new Vector3(scale, scale, 1f);
+                }
+                else
+                {
+                    enemy.transform.localScale = new Vector3(2.86f, 2.86f, 1f);
+                }
 
                 Rigidbody2D rb = enemy.AddComponent<Rigidbody2D>();
                 rb.freezeRotation = true;
                 rb.gravityScale = 3f;
 
-                enemy.AddComponent<BoxCollider2D>();
-                enemy.AddComponent<Enemy>();
+                BoxCollider2D col = enemy.AddComponent<BoxCollider2D>();
+                Enemy enemyComp = enemy.AddComponent<Enemy>();
+
+                // Ubicado en el borde delantero-inferior del collider (direction arranca en -1,
+                // o sea mirando a la izquierda); Enemy.cs lo espeja en X cuando cambia de sentido.
+                GameObject edgeCheckGo = new GameObject("EdgeCheck");
+                edgeCheckGo.transform.SetParent(enemy.transform, false);
+                float halfWidth = col.size.x * 0.5f;
+                float halfHeight = col.size.y * 0.5f;
+                edgeCheckGo.transform.localPosition = new Vector3(col.offset.x - halfWidth, col.offset.y - halfHeight - 0.1f, 0f);
+                enemyComp.edgeCheck = edgeCheckGo.transform;
             }
 
             enemy.name = "Enemy_" + i;

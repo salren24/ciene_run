@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float airControl = 0.65f;
 
     [Header("Salto")]
-    public float jumpForce = 15f;
+    public float jumpForce = 23f;
     public float jumpCutMultiplier = 0.45f;
     public float coyoteTime = 0.1f;
     public float jumpBufferTime = 0.12f;

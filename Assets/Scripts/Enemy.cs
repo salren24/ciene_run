@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     int direction = -1;
     bool dead;
 
+    float edgeCheckOffsetX;
+    float wallCheckOffsetX;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +37,14 @@ public class Enemy : MonoBehaviour
 
         if (groundLayer.value == 0)
             groundLayer = LayerMask.GetMask("Ground");
+
+        // Se guarda la distancia al frente (sin signo) para poder espejar edgeCheck/wallCheck
+        // cuando cambia direction; si no, el chequeo queda fijo del lado en que se lo ubico
+        // al crear el enemigo y solo detecta bordes/paredes patrullando hacia ese lado.
+        if (edgeCheck != null)
+            edgeCheckOffsetX = Mathf.Abs(edgeCheck.localPosition.x);
+        if (wallCheck != null)
+            wallCheckOffsetX = Mathf.Abs(wallCheck.localPosition.x);
     }
 
     void FixedUpdate()
@@ -44,10 +55,20 @@ public class Enemy : MonoBehaviour
         if (ShouldTurn())
             direction *= -1;
 
+        UpdateCheckPositions();
+
         rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
 
         if (sr != null)
             sr.flipX = direction > 0;
+    }
+
+    void UpdateCheckPositions()
+    {
+        if (edgeCheck != null)
+            edgeCheck.localPosition = new Vector3(direction * edgeCheckOffsetX, edgeCheck.localPosition.y, edgeCheck.localPosition.z);
+        if (wallCheck != null)
+            wallCheck.localPosition = new Vector3(direction * wallCheckOffsetX, wallCheck.localPosition.y, wallCheck.localPosition.z);
     }
 
     bool ShouldTurn()

@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   target: {fileID: 0}
-  offset: {x: 0, y: 0.3, z: -10}
+  offset: {x: 0, y: 3.1, z: -10}
   smoothSpeed: 8
   findPlayerOnStart: 1
   useBounds: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
     pointB: {x: 98, y: 5, z: 0}
     speed: 2
     width: 3
-  chargeEnemySpawnTimes: []
+  chargeEnemySpawnX: []
 --- !u!1 &700000001
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,10 +802,11 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   groundTop: {fileID: 11400000, guid: 7827ecc8303c7ba4a9d90036446622ce, type: 2}
   groundFill: {fileID: 11400000, guid: 99452257617c3c64a8e8033b8c41a248, type: 2}
+  groundRuleTile: {fileID: 11400000, guid: 6c5abcbbdefe46068c5d3cdf314b06a4, type: 2}
   startX: -8
   endX: 135
   groundY: -1
-  groundDepth: 4
+  groundDepth: 2
   platforms:
   - {x: 11, y: 0, z: 4}
   - {x: 15, y: 1, z: 4}

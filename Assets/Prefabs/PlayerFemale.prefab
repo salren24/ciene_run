@@ -165,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -231,7 +231,7 @@ MonoBehaviour:
   acceleration: 40
   deceleration: 50
   airControl: 0.65
-  jumpForce: 15
+  jumpForce: 23
   jumpCutMultiplier: 0.45
   coyoteTime: 0.1
   jumpBufferTime: 0.12
